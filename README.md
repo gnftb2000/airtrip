@@ -1,5 +1,7 @@
 # AirTrip — Airline Operations API
 
+**English** · [简体中文](README.zh-CN.md)
+
 A personal REST API for exploring airline operations data and building private
 travel plans. It is a Flask application (Flask-RESTX for Swagger docs,
 SQLAlchemy for persistence, Flask-JWT-Extended for auth) backed by a local
