@@ -1,0 +1,50 @@
+# -----------------------------------------------------------------------------
+# Local runtime data
+# -----------------------------------------------------------------------------
+# The SQLite file is created on first run and is rebuilt from the CSVs at the
+# repository root, so it never belongs in history.
+airtrip.db
+*.db-journal
+*.sqlite3
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.mplconfig/
+
+# -----------------------------------------------------------------------------
+# Node / Vite
+# -----------------------------------------------------------------------------
+airtrip-web/node_modules/
+airtrip-web/dist/
+.pnpm-store/
+*.log
+
+# -----------------------------------------------------------------------------
+# Editors and OS
+# -----------------------------------------------------------------------------
+.DS_Store
+.idea/
+.vscode/
+*.swp
+.ipynb_checkpoints/
+
+# -----------------------------------------------------------------------------
+# Coursework originals
+# -----------------------------------------------------------------------------
+# These files predate the AirTrip rewrite and are kept on disk only. The project
+# ships its own API, test suite and data; the assignment material is not part of it.
+z5700095_api.py
+z5700095_tests.py
+z1234567_v1.0.0.ipynb
+COMP9321-Assign2-实现教程.md
+assign2.db
+_smoke.sh
+hello.py
+_work/
