@@ -141,6 +141,49 @@
     rgba(3, 30, 45, 0.5);
 }
 
+/* ---------- compatibility shims ----------
+   The pages still carry hard-coded ink for the v0 (light) chrome. These
+   overrides keep the handful of labels that sit outside a pane readable, so a
+   single screen can be judged before the colours are tokenised. Delete this
+   block once the pages use .t-* classes. */
+
+[data-theme='aqua'] .text-\[\#083d5b\],
+[data-theme='aqua'] .text-\[\#08364f\] {
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 10, 20, 0.9);
+}
+
+[data-theme='aqua'] .text-\[\#2a5f7d\],
+[data-theme='aqua'] .text-\[\#2f6f92\] {
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 2px rgba(0, 10, 20, 0.8);
+}
+
+[data-theme='aqua'] .text-\[\#08354f\] {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 10, 20, 0.85);
+}
+
+[data-theme='aqua'] .text-\[\#255b78\] {
+  color: rgba(255, 255, 255, 0.86);
+  text-shadow: 0 1px 2px rgba(0, 10, 20, 0.8);
+}
+
+[data-theme='aqua'] .text-\[\#0a4260\] {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 10, 20, 0.8);
+}
+
+[data-theme='aqua'] .nav-item {
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 2px rgba(0, 10, 20, 0.75);
+}
+
+[data-theme='aqua'] .nav-item-active {
+  color: #04283a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
 /* ---------- glass ---------- */
 
 [data-theme='aqua'] .win {
