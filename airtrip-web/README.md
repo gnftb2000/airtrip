@@ -39,6 +39,7 @@ npm run build                          # 产物写入 dist/，由 Flask 在 /app
 | `/plans`、`/plans/new`、`/plans/:id/edit` | 私有行程、航线选择器、JSON/PNG 导出 |
 | `/users`、`/import` | 管理员专用：账号管理与 CSV 导入 |
 | `/style-tile` | 设计系统的可视化说明页 |
+| `/style-tile-aqua` | 样张 v2：同样的组件，Aqua 皮肤（`src/styles/theme-aqua.css`） |
 
 ## 界面截图
 
@@ -51,7 +52,9 @@ npm run build                          # 产物写入 dist/，由 Flask 在 /app
 
 设计系统本身见
 [`docs/style-tile-desktop.webp`](docs/style-tile-desktop.webp)，运行中的版本是
-`/app/style-tile`。
+`/app/style-tile`。Aqua 皮肤的对比样张见
+[`docs/style-tile-compare.webp`](docs/style-tile-compare.webp)（上：v0，下：Aqua），
+线上版本是 `/app/style-tile-aqua`。
 
 ## 目录结构
 

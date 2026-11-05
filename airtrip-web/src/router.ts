@@ -47,6 +47,11 @@ const router = createRouter({
     },
     { path: '/login', name: 'login', component: () => import('./pages/LoginView.vue') },
     { path: '/style-tile', name: 'style-tile', component: () => import('./pages/StyleTile.vue') },
+    {
+      path: '/style-tile-aqua',
+      name: 'style-tile-aqua',
+      component: () => import('./pages/StyleTileAqua.vue'),
+    },
     { path: '/:pathMatch(.*)*', redirect: '/dashboard' },
   ],
   scrollBehavior: () => ({ top: 0 }),

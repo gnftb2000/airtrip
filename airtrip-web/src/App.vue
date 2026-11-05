@@ -6,7 +6,7 @@ import AeroToasts from '@/components/AeroToasts.vue'
 const route = useRoute()
 
 // The style tile is a design document: it owns the whole canvas.
-const bare = computed(() => route.name === 'style-tile')
+const bare = computed(() => route.name === 'style-tile' || route.name === 'style-tile-aqua')
 
 // Deterministic scene decoration: clouds and bubbles are positioned from a
 // fixed table so the background is identical on every render.

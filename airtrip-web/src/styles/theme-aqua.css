@@ -1,0 +1,281 @@
+/* ============================================================
+   Theme: Aqua — style tile v2 preview.
+
+   Only active while <html data-theme="aqua">; nothing here leaks
+   into the default look. Recipe traced from the Frutiger Aero Hub
+   shell: pure-white 1.5px edges, cyan inner glow, 8px glass blur at
+   150% saturation, white pill controls, turquoise sky with a grass
+   horizon. All of it is CSS — no wallpapers, icons or mascots are
+   copied from that site.
+   ============================================================ */
+
+[data-theme='aqua'] {
+  --sky-far: #eaffff;
+  --sky-high: #a6f2ff;
+  --sky-mid: #3fd9f2;
+  --sky-deep: #12a6c8;
+  --sky-floor: #0a6d8c;
+
+  --aqua: #25e0e6;
+  --aqua-deep: #0e96b0;
+  --blue: #1cb6e0;
+  --blue-deep: #0a6f97;
+
+  --lime: #a8f07a;
+  --grass: #4fb45f;
+  --sun: #ffffcb;
+
+  --ink: #053a4c;
+  --ink-soft: #2c7389;
+  --ink-faint: rgba(5, 58, 76, 0.55);
+
+  --glass-fill: rgba(255, 255, 255, 0.18);
+  --glass-edge: #ffffff;
+  --glass-line: rgba(255, 255, 255, 0.9);
+
+  --shadow-window:
+    0 0 0 1px rgba(255, 255, 255, 0.5),
+    0 0 10px 2px rgba(255, 255, 255, 0.32),
+    0 24px 48px -20px rgba(2, 40, 56, 0.5);
+  --glass-fringe: 0 0 0 0 transparent;
+  --shadow-raised: 0 6px 14px -6px rgba(3, 45, 60, 0.4), inset 0 0 10px rgba(148, 246, 255, 0.5);
+
+  --radius: 12px;
+}
+
+/* ---------- scene: turquoise sky, sun bloom, grass horizon ---------- */
+
+[data-theme='aqua'] body {
+  background: #0b7fa0;
+}
+
+[data-theme='aqua'] .aero-scene {
+  background:
+    radial-gradient(1100px 560px at 50% -18%, rgba(255, 255, 255, 0.92) 0%, rgba(226, 255, 255, 0.72) 18%, rgba(150, 244, 255, 0.5) 42%, rgba(150, 244, 255, 0) 70%),
+    radial-gradient(760px 420px at 8% 12%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 62%),
+    radial-gradient(620px 380px at 92% 26%, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(180deg, #8ef0ff 0%, #45d8f0 22%, #17b2d2 44%, #0c88aa 62%, #0a6a7e 78%, #0d6150 100%);
+}
+
+/* grass horizon, painted rather than photographed */
+[data-theme='aqua'] .aero-hills {
+  display: block;
+  left: -6%;
+  right: -6%;
+  bottom: -8%;
+  height: 13%;
+  border-radius: 50% 50% 0 0 / 24% 24% 0 0;
+  background: linear-gradient(180deg, #86e09b 0%, #46bb68 30%, #24894e 64%, #14663c 100%);
+  box-shadow: 0 -2px 10px rgba(255, 255, 255, 0.45);
+  filter: none;
+  opacity: 1;
+}
+
+[data-theme='aqua'] .aero-sun {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.95) 0%, rgba(206, 252, 255, 0.6) 34%, rgba(160, 240, 255, 0.18) 56%, rgba(160, 240, 255, 0) 72%);
+  filter: none;
+}
+
+[data-theme='aqua'] .aero-sun::after {
+  display: none;
+}
+
+[data-theme='aqua'] .aero-shaft {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.16) 60%, rgba(255, 255, 255, 0) 100%);
+}
+
+[data-theme='aqua'] .aero-glare {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.55) 0%, rgba(190, 250, 255, 0.28) 46%, rgba(190, 250, 255, 0) 72%);
+}
+
+[data-theme='aqua'] .aero-cloud {
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 66%, rgba(255, 255, 255, 0) 100%);
+}
+
+[data-theme='aqua'] .aero-bubble {
+  background: radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.28) 42%, rgba(255, 255, 255, 0.1) 62%, rgba(255, 255, 255, 0.3) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/* ---------- glass ---------- */
+
+[data-theme='aqua'] .win {
+  background:
+    linear-gradient(112deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0) 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.09) 26%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.06) 100%),
+    var(--glass-fill);
+  border: 1.5px solid #ffffff;
+  backdrop-filter: blur(8px) saturate(1.65) brightness(1.01);
+  -webkit-backdrop-filter: blur(8px) saturate(1.65) brightness(1.01);
+  box-shadow:
+    inset 0 0 20px rgba(148, 246, 255, 0.45),
+    inset 0 1px 0 #ffffff,
+    inset 0 -1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -14px 24px -18px rgba(4, 60, 80, 0.4),
+    0 0 10px 2px rgba(255, 255, 255, 0.34),
+    0 22px 44px -20px rgba(3, 45, 60, 0.5);
+}
+
+[data-theme='aqua'] .win-dense {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.06) 32%, rgba(255, 255, 255, 0.01) 100%),
+    rgba(226, 252, 255, 0.30);
+}
+
+[data-theme='aqua'] .win-bar {
+  background: linear-gradient(180deg, #ffffff 0%, #f4feff 40%, #ccf4ff 40%, #93e0f2 100%);
+  border-bottom: 1.5px solid #ffffff;
+  box-shadow: inset 0 1px 0 #ffffff, inset 0 -8px 10px -9px rgba(10, 90, 110, 0.35);
+}
+
+[data-theme='aqua'] .win-title {
+  color: #05434f;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+[data-theme='aqua'] .win-dark {
+  background:
+    linear-gradient(180deg, rgba(210, 255, 255, 0.14) 0%, rgba(210, 255, 255, 0.03) 40%, rgba(0, 40, 50, 0.2) 100%),
+    rgba(6, 52, 66, 0.78);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+[data-theme='aqua'] .win-dark .win-bar {
+  background: linear-gradient(180deg, #d8fbff 0%, #9fe6f5 46%, #5fc3d9 46%, #2f96ae 100%);
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme='aqua'] .win-dark .win-title {
+  color: #05323c;
+}
+
+/* ---------- tiles & tables: the glossy row-card language ---------- */
+
+[data-theme='aqua'] .tile {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.52) 0%,
+    rgba(196, 255, 250, 0.30) 46%,
+    rgba(37, 209, 248, 0.2) 46.5%,
+    rgba(0, 208, 255, 0.24) 100%
+  );
+  border: 1.5px solid #ffffff;
+  box-shadow:
+    inset 0 0 16px rgba(148, 246, 255, 0.45),
+    inset 0 1px 0 #ffffff,
+    0 6px 16px -10px rgba(3, 45, 60, 0.45);
+}
+
+[data-theme='aqua'] .aero-table thead th {
+  color: #05434f;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(186, 246, 255, 0.7));
+  border-bottom: 1.5px solid #ffffff;
+}
+
+[data-theme='aqua'] .aero-table tbody td {
+  color: #0a4457;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+[data-theme='aqua'] .aero-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- controls ---------- */
+
+[data-theme='aqua'] .btn {
+  border-radius: 45px;
+  border: 1.5px solid #ffffff;
+  color: #05434f;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95);
+  background: linear-gradient(180deg, #ffffff 0%, #f2feff 42%, #cfeeff 42%, #a4e0f4 100%);
+  box-shadow:
+    inset 0 0 12px rgba(148, 246, 255, 0.6),
+    inset 0 1px 0 #ffffff,
+    inset 0 -1px 0 rgba(255, 255, 255, 0.85),
+    0 0 6px rgba(255, 255, 255, 0.6),
+    0 2px 0 rgba(255, 255, 255, 0.35),
+    0 8px 16px -7px rgba(3, 45, 60, 0.5);
+}
+
+[data-theme='aqua'] .btn::before {
+  height: 42%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.3) 62%, rgba(255, 255, 255, 0) 100%);
+}
+
+[data-theme='aqua'] .btn-aqua {
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(0, 40, 50, 0.5);
+  border-color: #ffffff;
+  background: linear-gradient(180deg, #8df3ff 0%, #25c9ee 44%, #0f9fc8 44%, #07708f 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -2px 6px -2px rgba(3, 45, 60, 0.45),
+    0 0 10px rgba(255, 255, 255, 0.45),
+    0 6px 14px -6px rgba(3, 45, 60, 0.5);
+}
+
+[data-theme='aqua'] .btn-danger {
+  background: linear-gradient(180deg, #ffe6e0 0%, #ff9f92 44%, #e2654f 44%, #a83d2b 100%);
+  border-color: #ffffff;
+  color: #ffffff;
+  text-shadow: 0 1px 1px rgba(70, 12, 6, 0.55);
+}
+
+[data-theme='aqua'] .btn-glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.52) 100%);
+  color: #05434f;
+  border: 1.5px solid #ffffff;
+  box-shadow: inset 0 0 10px rgba(148, 246, 255, 0.4), 0 4px 12px -8px rgba(3, 45, 60, 0.4);
+}
+
+[data-theme='aqua'] .field {
+  border: 1.5px solid #ffffff;
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(232, 252, 255, 0.8) 100%);
+  box-shadow:
+    inset 0 0 10px rgba(148, 246, 255, 0.45),
+    0 1px 2px rgba(3, 45, 60, 0.16);
+}
+
+[data-theme='aqua'] .field:focus {
+  border-color: #ffffff;
+  box-shadow:
+    inset 0 0 12px rgba(148, 246, 255, 0.6),
+    0 0 0 3px rgba(255, 255, 255, 0.65),
+    0 0 10px rgba(37, 224, 230, 0.5);
+}
+
+[data-theme='aqua'] .badge {
+  border: 1.5px solid #ffffff;
+  color: #05434f;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(198, 250, 255, 0.55) 100%);
+  box-shadow: inset 0 0 8px rgba(148, 246, 255, 0.5), 0 0 6px rgba(255, 255, 255, 0.35);
+}
+
+[data-theme='aqua'] .badge-aqua {
+  color: #ffffff;
+  background: linear-gradient(180deg, #35e2e6 0%, #0f9fb8 100%);
+  border-color: #ffffff;
+}
+
+[data-theme='aqua'] .badge-lime {
+  color: #1c4a12;
+  background: linear-gradient(180deg, #d9ffc2 0%, #a5eb78 100%);
+  border-color: #ffffff;
+}
+
+[data-theme='aqua'] .nav-item-active {
+  color: #05434f;
+  background: linear-gradient(180deg, #ffffff 0%, #e9feff 44%, #bdefff 44%, #8fd8ee 100%);
+  border-color: #ffffff;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0 0 12px rgba(148, 246, 255, 0.6), 0 2px 8px rgba(3, 45, 60, 0.25);
+}
+
+[data-theme='aqua'] .page-btn-active {
+  color: #05434f;
+  background: linear-gradient(180deg, #ffffff 0%, #d6f8ff 46%, #9ee3f6 100%);
+  border-color: #ffffff;
+  text-shadow: 0 1px 0 #ffffff;
+}

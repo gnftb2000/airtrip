@@ -39,6 +39,7 @@ Sign in with `admin` / `admin` (or `user` / `user`). Dataset import lives at
 | `/plans`, `/plans/new`, `/plans/:id/edit` | Private plans, route picker, JSON/PNG export |
 | `/users`, `/import` | Admin only: accounts and CSV import |
 | `/style-tile` | Living style guide for the design system |
+| `/style-tile-aqua` | Style-tile v2 preview: same components, Aqua skin (`src/styles/theme-aqua.css`) |
 
 ## Screenshots
 
@@ -51,7 +52,9 @@ Sign in with `admin` / `admin` (or `user` / `user`). Dataset import lives at
 
 The design system itself is documented in
 [`docs/style-tile-desktop.webp`](docs/style-tile-desktop.webp); the live version
-is `/app/style-tile`.
+is `/app/style-tile`. The Aqua re-skin is sketched in
+[`docs/style-tile-compare.webp`](docs/style-tile-compare.webp) and served at
+`/app/style-tile-aqua` (top: v0, bottom: Aqua).
 
 ## Structure
 
