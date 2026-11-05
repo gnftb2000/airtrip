@@ -9,6 +9,11 @@ import AeroIcon from '@/components/AeroIcon.vue'
 let previous: string | null = null
 
 // Swap between the painted CSS sky and the photographic wallpaper.
+// ?fill=0.38 overrides the glass alpha on the fly, so the mix can be tuned
+// without editing the stylesheet (?bg=css renders the painted sky instead).
+const fillParam = Number(new URLSearchParams(window.location.search).get('fill'))
+const glassFill = Number.isFinite(fillParam) && fillParam > 0 ? Math.min(fillParam, 1) : null
+
 // ?bg=css renders the painted sky, default is the photographic wallpaper
 const wallpaper = ref(new URLSearchParams(window.location.search).get('bg') !== 'css')
 const root = () => document.documentElement
@@ -22,11 +27,13 @@ onMounted(() => {
   previous = root().getAttribute('data-theme')
   root().setAttribute('data-theme', 'aqua')
   if (wallpaper.value) root().setAttribute('data-wallpaper', 'on')
+  if (glassFill !== null) root().style.setProperty('--glass-fill', `rgba(4, 40, 58, ${glassFill})`)
 })
 onBeforeUnmount(() => {
   if (previous) root().setAttribute('data-theme', previous)
   else root().removeAttribute('data-theme')
   root().removeAttribute('data-wallpaper')
+  root().style.removeProperty('--glass-fill')
 })
 
 // The page header sits straight on the scene, so its ink flips on the photo.
