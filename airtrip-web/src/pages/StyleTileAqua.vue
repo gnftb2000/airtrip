@@ -7,6 +7,7 @@ import AeroIcon from '@/components/AeroIcon.vue'
 // The theme is a document-level switch so the shared background scene
 // re-skins itself; the previous value is restored when the page unmounts.
 let previous: string | null = null
+let previousWallpaper: string | null = null
 
 // Swap between the painted CSS sky and the photographic wallpaper.
 // ?fill=0.38 overrides the glass alpha on the fly, so the mix can be tuned
@@ -30,6 +31,7 @@ watch(wallpaper, (on) => {
 
 onMounted(() => {
   previous = root().getAttribute('data-theme')
+  previousWallpaper = root().getAttribute('data-wallpaper')
   root().setAttribute('data-theme', 'aqua')
   if (wallpaper.value) root().setAttribute('data-wallpaper', 'on')
   if (glassFill !== null) root().style.setProperty('--glass-fill', `rgba(4, 40, 58, ${glassFill})`)
@@ -38,7 +40,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (previous) root().setAttribute('data-theme', previous)
   else root().removeAttribute('data-theme')
-  root().removeAttribute('data-wallpaper')
+  if (previousWallpaper) root().setAttribute('data-wallpaper', previousWallpaper)
+  else root().removeAttribute('data-wallpaper')
   root().style.removeProperty('--glass-fill')
   root().style.removeProperty('--glass-dim')
 })
@@ -270,7 +273,7 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
     <div class="grid gap-5 lg:grid-cols-[1fr_1.1fr]">
       <!-- dark glass -->
       <AeroWindow title="Dark glass" subtitle="for dense data and night states" variant="dark">
-        <p class="m-0 max-w-[42ch] text-[13.5px] leading-[1.65] font-light text-[#d7f7ff]">
+        <p class="m-0 max-w-[42ch] text-[13.5px] leading-[1.65] font-light text-[color:var(--ink-on-dark)]">
           Same chrome, inverted fill. Used sparingly: route detail drawers, import logs, the
           confirm dialog. Never as a full-page background.
         </p>

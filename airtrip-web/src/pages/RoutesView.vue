@@ -273,7 +273,7 @@ const detailStops = computed(() => (detail.value ? stopsLabel(detail.value.stops
 
     <p
       v-if="error"
-      class="mb-3 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+      class="mb-3 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
     >
       {{ error }}
     </p>
@@ -293,13 +293,13 @@ const detailStops = computed(() => (detail.value ? stopsLabel(detail.value.stops
         <span class="badge badge-mono">{{ value }}</span>
       </template>
       <template #cell-route_label="{ value }">
-        <span class="mono font-normal text-[#08354f]">{{ value }}</span>
+        <span class="mono font-normal text-[color:var(--ink)]">{{ value }}</span>
       </template>
       <template #cell-stops_label="{ value }">
-        <span class="font-light text-[#255b78]">{{ value }}</span>
+        <span class="font-light text-[color:var(--ink-soft)]">{{ value }}</span>
       </template>
       <template #cell-codeshare_label="{ value }">
-        <span class="font-light text-[#255b78]">{{ value }}</span>
+        <span class="font-light text-[color:var(--ink-soft)]">{{ value }}</span>
       </template>
       <template #empty>
         <AeroEmpty
@@ -333,7 +333,7 @@ const detailStops = computed(() => (detail.value ? stopsLabel(detail.value.stops
       <span class="skeleton" style="width: 72%" />
     </div>
 
-    <p v-else-if="detailError" class="rounded-[7px] border border-[rgba(255,150,140,0.45)] px-2.5 py-2 text-[12.5px] font-light text-[#ffb5ac]">
+    <p v-else-if="detailError" class="rounded-[7px] border border-[var(--danger-border-soft)] px-2.5 py-2 text-[12.5px] font-light text-[color:var(--danger-ink-soft)]">
       {{ detailError }}
     </p>
 
@@ -345,18 +345,18 @@ const detailStops = computed(() => (detail.value ? stopsLabel(detail.value.stops
       </div>
 
       <div>
-        <div class="text-[10.5px] font-normal tracking-[0.16em] text-[rgba(220,242,255,0.6)] uppercase">
+        <div class="text-[10.5px] font-normal tracking-[0.16em] text-[color:var(--ink-on-dark)] uppercase">
           Airline
         </div>
         <RouterLink
           :to="`/airlines/${detail.airline.iata_code}`"
-          class="mt-1 inline-flex flex-wrap items-center gap-2 text-[15px] font-light text-[#eaf7ff] underline decoration-white/30 underline-offset-4 hover:decoration-white"
+          class="mt-1 inline-flex flex-wrap items-center gap-2 text-[15px] font-light text-[color:var(--ink-on-dark)] underline decoration-white/30 underline-offset-4 hover:decoration-white"
           @click="drawerOpen = false"
         >
           {{ detail.airline.name }}
           <span class="badge badge-mono">{{ detail.airline.iata_code }}</span>
         </RouterLink>
-        <div class="text-[12px] font-light text-[rgba(220,242,255,0.65)]">{{ detail.airline.country }}</div>
+        <div class="text-[12px] font-light text-[color:var(--ink-on-dark)]">{{ detail.airline.country }}</div>
       </div>
 
       <div class="grid gap-2.5 sm:grid-cols-2">
@@ -365,12 +365,12 @@ const detailStops = computed(() => (detail.value ? stopsLabel(detail.value.stops
           class="tile block"
           @click="drawerOpen = false"
         >
-          <div class="text-[10.5px] font-normal tracking-[0.16em] text-[rgba(10,58,85,0.65)] uppercase">
+          <div class="text-[10.5px] font-normal tracking-[0.16em] text-[color:var(--ink-faint)] uppercase">
             Origin
           </div>
           <div class="mono mt-1 text-[15px]">{{ detail.origin_airport.iata_code }}</div>
-          <div class="mt-0.5 text-[13px] font-normal text-[#0a4260]">{{ detail.origin_airport.name }}</div>
-          <div class="text-[12px] font-light text-[#2f6683]">
+          <div class="mt-0.5 text-[13px] font-normal text-[color:var(--ink)]">{{ detail.origin_airport.name }}</div>
+          <div class="text-[12px] font-light text-[color:var(--ink-soft)]">
             {{ detail.origin_airport.city }}, {{ detail.origin_airport.country }}
           </div>
         </RouterLink>
@@ -380,12 +380,12 @@ const detailStops = computed(() => (detail.value ? stopsLabel(detail.value.stops
           class="tile block"
           @click="drawerOpen = false"
         >
-          <div class="text-[10.5px] font-normal tracking-[0.16em] text-[rgba(10,58,85,0.65)] uppercase">
+          <div class="text-[10.5px] font-normal tracking-[0.16em] text-[color:var(--ink-faint)] uppercase">
             Destination
           </div>
           <div class="mono mt-1 text-[15px]">{{ detail.destination_airport.iata_code }}</div>
-          <div class="mt-0.5 text-[13px] font-normal text-[#0a4260]">{{ detail.destination_airport.name }}</div>
-          <div class="text-[12px] font-light text-[#2f6683]">
+          <div class="mt-0.5 text-[13px] font-normal text-[color:var(--ink)]">{{ detail.destination_airport.name }}</div>
+          <div class="text-[12px] font-light text-[color:var(--ink-soft)]">
             {{ detail.destination_airport.city }}, {{ detail.destination_airport.country }}
           </div>
         </RouterLink>
@@ -393,22 +393,22 @@ const detailStops = computed(() => (detail.value ? stopsLabel(detail.value.stops
 
       <dl class="grid grid-cols-3 gap-3 border-t border-white/20 pt-3">
         <div>
-          <dt class="text-[10.5px] font-normal tracking-[0.14em] text-[rgba(220,242,255,0.6)] uppercase">
+          <dt class="text-[10.5px] font-normal tracking-[0.14em] text-[color:var(--ink-on-dark)] uppercase">
             Stops
           </dt>
-          <dd class="mt-1 text-[15px] font-light text-[#eaf7ff]">{{ detailStops }}</dd>
+          <dd class="mt-1 text-[15px] font-light text-[color:var(--ink-on-dark)]">{{ detailStops }}</dd>
         </div>
         <div>
-          <dt class="text-[10.5px] font-normal tracking-[0.14em] text-[rgba(220,242,255,0.6)] uppercase">
+          <dt class="text-[10.5px] font-normal tracking-[0.14em] text-[color:var(--ink-on-dark)] uppercase">
             Equipment
           </dt>
-          <dd class="mono mt-1 text-[13px] text-[#eaf7ff]">{{ detail.equipment ?? '—' }}</dd>
+          <dd class="mono mt-1 text-[13px] text-[color:var(--ink-on-dark)]">{{ detail.equipment ?? '—' }}</dd>
         </div>
         <div>
-          <dt class="text-[10.5px] font-normal tracking-[0.14em] text-[rgba(220,242,255,0.6)] uppercase">
+          <dt class="text-[10.5px] font-normal tracking-[0.14em] text-[color:var(--ink-on-dark)] uppercase">
             Codeshare
           </dt>
-          <dd class="mt-1 text-[15px] font-light text-[#eaf7ff]">
+          <dd class="mt-1 text-[15px] font-light text-[color:var(--ink-on-dark)]">
             {{ detail.codeshare === 'Y' ? 'Yes' : 'No' }}
           </dd>
         </div>

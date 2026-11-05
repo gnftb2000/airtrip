@@ -16,8 +16,8 @@ withDefaults(
     <div class="orb" style="width: 44px; height: 44px">
       <AeroIcon :name="icon" :size="20" />
     </div>
-    <div class="text-[14.5px] font-normal text-[#0a4260]">{{ title }}</div>
-    <p v-if="text" class="max-w-[380px] text-[12.5px] leading-relaxed font-light text-[#2f6683]">
+    <div class="text-[14.5px] font-normal text-[color:var(--ink)]">{{ title }}</div>
+    <p v-if="text" class="max-w-[380px] text-[12.5px] leading-relaxed font-light text-[color:var(--ink-soft)]">
       {{ text }}
     </p>
     <slot />

@@ -242,7 +242,7 @@ function formatCount(value: number): string {
 
       <p
         v-if="error"
-        class="mb-3 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+        class="mb-3 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
       >
         {{ error }}
       </p>

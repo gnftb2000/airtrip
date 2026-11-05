@@ -5,15 +5,12 @@ import router from './router'
 import './styles/aero.css'
 import './styles/theme-aqua.css'
 
-// Temporary switch so any screen can be seen in the Aqua skin before the
-// hard-coded colours are tokenised: ?theme=aqua (and ?wallpaper=on|off).
+// Aqua is the default skin. `?theme=v0` shows the original blue build and
+// `?bg=css` swaps the photographic wallpaper for the painted sky.
 const params = new URLSearchParams(window.location.search)
-const theme = params.get('theme')
-if (theme === 'aqua') {
+if (params.get('theme') !== 'v0') {
   document.documentElement.setAttribute('data-theme', 'aqua')
-  const wallpaper = params.get('wallpaper')
-  if (wallpaper === 'on') document.documentElement.setAttribute('data-wallpaper', 'on')
-  if (wallpaper === 'off') document.documentElement.removeAttribute('data-wallpaper')
+  if (params.get('bg') !== 'css') document.documentElement.setAttribute('data-wallpaper', 'on')
 }
 
 createApp(App).use(createPinia()).use(router).mount('#app')

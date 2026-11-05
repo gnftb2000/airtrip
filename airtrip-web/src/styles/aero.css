@@ -37,6 +37,18 @@
   --ink: #0a3a55;
   --ink-soft: #3d7592;
   --ink-faint: rgba(10, 58, 85, 0.55);
+  --ink-on-dark: #eaf7ff;
+  --surface-chip: rgba(255, 255, 255, 0.36);
+
+  /* status ink and surfaces */
+  --danger-ink: #983328;
+  --danger-ink-soft: #a13a2f;
+  --danger-surface: rgba(255, 238, 235, 0.85);
+  --danger-border: #e2b0a8;
+  --danger-border-soft: rgba(255, 150, 140, 0.45);
+  --success-ink: #1e6b3f;
+  --success-surface: rgba(238, 255, 242, 0.9);
+  --success-border: #a9d9b3;
 
   /* glass */
   --glass-fill: rgba(214, 242, 255, 0.34);

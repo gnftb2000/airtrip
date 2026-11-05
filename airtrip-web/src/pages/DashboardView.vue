@@ -204,7 +204,7 @@ onMounted(() => {
 
     <p
       v-if="countsError"
-      class="mb-3 flex flex-wrap items-center gap-2 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+      class="mb-3 flex flex-wrap items-center gap-2 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
     >
       <span>{{ countsError }}</span>
       <button class="btn btn-sm btn-glass ml-auto" @click="loadCounts">
@@ -234,13 +234,13 @@ onMounted(() => {
 
     <p
       v-if="!countsLoading && !countsError && datasetEmpty"
-      class="mt-3 text-[12.5px] leading-relaxed font-light text-[#2a5f7d]"
+      class="mt-3 text-[12.5px] leading-relaxed font-light text-[color:var(--ink-soft)]"
     >
       The dataset is empty.
       <template v-if="auth.isAdmin">
         <RouterLink
           to="/import"
-          class="font-normal text-[#0b5a86] underline decoration-[#0b5a86]/40 underline-offset-2"
+          class="font-normal text-[color:var(--ink-soft)] underline decoration-[#0b5a86]/40 underline-offset-2"
         >
           Import the CSV datasets
         </RouterLink>
@@ -248,7 +248,7 @@ onMounted(() => {
       </template>
       <template v-else> Ask an administrator to import the CSV datasets.</template>
     </p>
-    <p v-if="plansError" class="mt-2 text-[11.5px] font-light text-[#983328]">{{ plansError }}</p>
+    <p v-if="plansError" class="mt-2 text-[11.5px] font-light text-[color:var(--danger-ink)]">{{ plansError }}</p>
   </AeroWindow>
 
   <div class="mt-4 grid gap-4 sm:grid-cols-2">
@@ -258,13 +258,13 @@ onMounted(() => {
           <AeroIcon name="route" :size="20" />
         </div>
         <div class="min-w-0">
-          <div class="text-[14.5px] font-normal text-[#0a4260]">Browse routes</div>
-          <p class="mt-1 text-[12.5px] leading-relaxed font-light text-[#2a5f7d]">
+          <div class="text-[14.5px] font-normal text-[color:var(--ink)]">Browse routes</div>
+          <p class="mt-1 text-[12.5px] leading-relaxed font-light text-[color:var(--ink-soft)]">
             Search every connection by airline, origin and destination, then open a route for the
             full details.
           </p>
         </div>
-        <span class="ml-auto shrink-0 text-[#2f6f92]">
+        <span class="ml-auto shrink-0 text-[color:var(--ink-soft)]">
           <AeroIcon name="chevron-right" :size="16" />
         </span>
       </div>
@@ -276,13 +276,13 @@ onMounted(() => {
           <AeroIcon name="plan" :size="20" />
         </div>
         <div class="min-w-0">
-          <div class="text-[14.5px] font-normal text-[#0a4260]">Plan a trip</div>
-          <p class="mt-1 text-[12.5px] leading-relaxed font-light text-[#2a5f7d]">
+          <div class="text-[14.5px] font-normal text-[color:var(--ink)]">Plan a trip</div>
+          <p class="mt-1 text-[12.5px] leading-relaxed font-light text-[color:var(--ink-soft)]">
             Give your journey a name and dates, then collect the routes you want to fly and keep
             them on your account.
           </p>
         </div>
-        <span class="ml-auto shrink-0 text-[#2f6f92]">
+        <span class="ml-auto shrink-0 text-[color:var(--ink-soft)]">
           <AeroIcon name="chevron-right" :size="16" />
         </span>
       </div>
@@ -300,7 +300,7 @@ onMounted(() => {
 
         <p
           v-if="recentError"
-          class="mb-3 flex flex-wrap items-center gap-2 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+          class="mb-3 flex flex-wrap items-center gap-2 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
         >
           <span>{{ recentError }}</span>
           <button class="btn btn-sm btn-glass ml-auto" @click="loadRecent">
@@ -321,7 +321,7 @@ onMounted(() => {
             <span class="badge badge-mono">{{ value }}</span>
           </template>
           <template #cell-name="{ value }">
-            <span class="font-normal text-[#08354f]">{{ value }}</span>
+            <span class="font-normal text-[color:var(--ink)]">{{ value }}</span>
           </template>
           <template #empty>
             <AeroEmpty
@@ -351,12 +351,12 @@ onMounted(() => {
         <span class="skeleton block" style="width: 72%; height: 13px" />
         <span class="skeleton block" style="width: 58%; height: 10px" />
       </div>
-      <p v-else-if="countsError" class="text-[12px] leading-relaxed font-light text-[#983328]">
+      <p v-else-if="countsError" class="text-[12px] leading-relaxed font-light text-[color:var(--danger-ink)]">
         Status unavailable. Use Retry above to try again.
       </p>
       <template v-else>
         <div class="field-label">Last import</div>
-        <div class="text-[13.5px] font-normal text-[#0a4260]">
+        <div class="text-[13.5px] font-normal text-[color:var(--ink)]">
           {{ formatWhen(importState?.last_import_at) }}
         </div>
 
@@ -375,7 +375,7 @@ onMounted(() => {
             {{ key }} {{ value }}
           </span>
         </div>
-        <p v-else class="mt-2 text-[12px] leading-relaxed font-light text-[#2a5f7d]">
+        <p v-else class="mt-2 text-[12px] leading-relaxed font-light text-[color:var(--ink-soft)]">
           No import has run since the API process started. Replace datasets from the import page
           when you are ready.
         </p>

@@ -27,7 +27,7 @@ const visible = computed(() => {
 
 <template>
   <div class="flex flex-wrap items-center gap-3">
-    <span class="text-[12px] font-light text-[#2f6683]">
+    <span class="text-[12px] font-light text-[color:var(--ink-soft)]">
       Showing {{ from }}–{{ to }} of {{ total }} {{ unit }}
     </span>
     <div class="ml-auto flex items-center gap-1.5">

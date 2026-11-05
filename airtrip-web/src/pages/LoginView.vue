@@ -31,7 +31,7 @@ async function submit(): Promise<void> {
 
 <template>
   <div class="grid min-h-[calc(100vh-96px)] place-items-center px-2">
-    <section class="win w-full max-w-[380px]">
+    <section class="win win-dark w-full max-w-[380px]">
       <header class="win-bar">
         <div class="min-w-0">
           <div class="win-title">AirTrip</div>
@@ -42,7 +42,7 @@ async function submit(): Promise<void> {
         </div>
       </header>
       <form class="win-body space-y-3.5" @submit.prevent="submit">
-        <p class="text-[12.5px] leading-relaxed font-light text-[#255b78]">
+        <p class="text-[12.5px] leading-relaxed font-light text-[color:var(--ink-soft)]">
           Sign in to browse airports, airlines and routes, and to keep your own travel plans.
         </p>
 
@@ -58,7 +58,7 @@ async function submit(): Promise<void> {
 
         <p
           v-if="error"
-          class="rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+          class="rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
         >
           {{ error }}
         </p>
@@ -67,7 +67,7 @@ async function submit(): Promise<void> {
           <span class="btn-label">{{ busy ? 'Signing in…' : 'Sign in' }}</span>
         </button>
 
-        <p class="text-center text-[11px] font-light text-[#2a5f7d]">
+        <p class="text-center text-[11px] font-light text-[color:var(--ink-soft)]">
           Seeded accounts: <span class="mono">admin / admin</span> ·
           <span class="mono">user / user</span>
         </p>

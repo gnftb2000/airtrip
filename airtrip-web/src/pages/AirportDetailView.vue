@@ -350,7 +350,7 @@ function openAirline(code: string): void {
     >
       <template #actions>
         <label class="flex items-center gap-2">
-          <span class="hidden text-[11px] font-light tracking-[0.4px] text-[#2f6683] uppercase sm:inline">Rows</span>
+          <span class="hidden text-[11px] font-light tracking-[0.4px] text-[color:var(--ink-soft)] uppercase sm:inline">Rows</span>
           <span class="select-wrap w-[72px]">
             <select v-model.number="routesPageSize" class="field !h-[28px] !px-2.5 !text-[12px]" @change="routesPage = 1">
               <option :value="10">10</option>
@@ -380,7 +380,7 @@ function openAirline(code: string): void {
 
       <p
         v-if="routesError"
-        class="mb-3 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+        class="mb-3 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
       >
         {{ routesError }}
       </p>
@@ -406,8 +406,8 @@ function openAirline(code: string): void {
         </template>
         <template #cell-codeshare="{ value }">
           <span v-if="value === 'Y'" class="badge badge-aqua">Yes</span>
-          <span v-else-if="value === 'N'" class="text-[12px] font-light text-[#255b78]">No</span>
-          <span v-else class="text-[12px] font-light text-[#255b78]">—</span>
+          <span v-else-if="value === 'N'" class="text-[12px] font-light text-[color:var(--ink-soft)]">No</span>
+          <span v-else class="text-[12px] font-light text-[color:var(--ink-soft)]">—</span>
         </template>
         <template #empty>
           <AeroEmpty
@@ -445,7 +445,7 @@ function openAirline(code: string): void {
     >
       <template #actions>
         <label class="flex items-center gap-2">
-          <span class="hidden text-[11px] font-light tracking-[0.4px] text-[#2f6683] uppercase sm:inline">Rows</span>
+          <span class="hidden text-[11px] font-light tracking-[0.4px] text-[color:var(--ink-soft)] uppercase sm:inline">Rows</span>
           <span class="select-wrap w-[72px]">
             <select v-model.number="airlinesPageSize" class="field !h-[28px] !px-2.5 !text-[12px]" @change="airlinesPage = 1">
               <option :value="10">10</option>
@@ -458,7 +458,7 @@ function openAirline(code: string): void {
 
       <p
         v-if="airlinesError"
-        class="mb-3 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+        class="mb-3 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
       >
         {{ airlinesError }}
       </p>
@@ -475,7 +475,7 @@ function openAirline(code: string): void {
           <span class="badge badge-mono">{{ value }}</span>
         </template>
         <template #cell-name="{ value }">
-          <span class="font-normal text-[#08354f]">{{ value }}</span>
+          <span class="font-normal text-[color:var(--ink)]">{{ value }}</span>
         </template>
         <template #empty>
           <AeroEmpty
@@ -507,7 +507,7 @@ function openAirline(code: string): void {
     >
       <template #actions>
         <label class="flex items-center gap-2">
-          <span class="hidden text-[11px] font-light tracking-[0.4px] text-[#2f6683] uppercase sm:inline">Rows</span>
+          <span class="hidden text-[11px] font-light tracking-[0.4px] text-[color:var(--ink-soft)] uppercase sm:inline">Rows</span>
           <span class="select-wrap w-[72px]">
             <select v-model.number="destinationsPageSize" class="field !h-[28px] !px-2.5 !text-[12px]" @change="destinationsPage = 1">
               <option :value="10">10</option>
@@ -520,7 +520,7 @@ function openAirline(code: string): void {
 
       <p
         v-if="destinationsError"
-        class="mb-3 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+        class="mb-3 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
       >
         {{ destinationsError }}
       </p>
@@ -537,7 +537,7 @@ function openAirline(code: string): void {
           <span class="badge badge-mono">{{ value }}</span>
         </template>
         <template #cell-name="{ value }">
-          <span class="font-normal text-[#08354f]">{{ value }}</span>
+          <span class="font-normal text-[color:var(--ink)]">{{ value }}</span>
         </template>
         <template #empty>
           <AeroEmpty

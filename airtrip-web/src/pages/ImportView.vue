@@ -211,7 +211,7 @@ onMounted(() => {
   <AeroWindow dense title="Dataset status" subtitle="Rows currently stored by the API">
     <p
       v-if="statusError"
-      class="mb-3 flex flex-wrap items-center gap-2 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+      class="mb-3 flex flex-wrap items-center gap-2 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
     >
       <span>{{ statusError }}</span>
       <button class="btn btn-sm btn-glass ml-auto" @click="loadStatus">
@@ -235,7 +235,7 @@ onMounted(() => {
         <span class="skeleton block" style="width: 190px; height: 13px" />
       </div>
       <template v-else-if="lastImport">
-        <div class="text-[13px] font-normal text-[#0a4260]">
+        <div class="text-[13px] font-normal text-[color:var(--ink)]">
           {{ formatWhen(status?.last_import_at) }}
         </div>
         <div class="mt-2 flex flex-wrap gap-1.5">
@@ -255,14 +255,14 @@ onMounted(() => {
           </span>
         </div>
       </template>
-      <div v-else class="text-[12.5px] font-light text-[#2a5f7d]">
+      <div v-else class="text-[12.5px] font-light text-[color:var(--ink-soft)]">
         No import has run since the API started.
       </div>
     </div>
 
     <p
       v-if="!statusLoading && !statusError && datasetEmpty"
-      class="mt-3 text-[12.5px] leading-relaxed font-light text-[#2a5f7d]"
+      class="mt-3 text-[12.5px] leading-relaxed font-light text-[color:var(--ink-soft)]"
     >
       The database is empty. Upload all three files together on a fresh database so every route
       can be matched to its airline and airports.
@@ -279,13 +279,13 @@ onMounted(() => {
       <div
         v-for="dataset in datasets"
         :key="dataset.key"
-        class="rounded-[10px] border border-[rgba(255,255,255,0.75)] bg-[rgba(255,255,255,0.36)] p-3"
+        class="rounded-[10px] border border-[rgba(255,255,255,0.75)] bg-[var(--surface-chip)] p-3"
       >
         <div class="flex items-center gap-2">
-          <span class="text-[#2f6f92]"><AeroIcon name="upload" :size="13" /></span>
-          <span class="text-[13px] font-normal text-[#0a4260]">{{ dataset.file }}</span>
+          <span class="text-[color:var(--ink-soft)]"><AeroIcon name="upload" :size="13" /></span>
+          <span class="text-[13px] font-normal text-[color:var(--ink)]">{{ dataset.file }}</span>
         </div>
-        <p class="mt-1 mb-2 break-words text-[11px] leading-relaxed font-light text-[#3d7592]">
+        <p class="mt-1 mb-2 break-words text-[11px] leading-relaxed font-light text-[color:var(--ink-soft)]">
           {{ dataset.hint }}
         </p>
 
@@ -303,13 +303,13 @@ onMounted(() => {
           />
         </label>
 
-        <p v-if="fileErrors[dataset.key]" class="mt-1.5 text-[11.5px] text-[#983328]">
+        <p v-if="fileErrors[dataset.key]" class="mt-1.5 text-[11.5px] text-[color:var(--danger-ink)]">
           {{ fileErrors[dataset.key] }}
         </p>
 
         <div v-if="files[dataset.key]" class="mt-2 flex flex-wrap items-center gap-1.5">
           <span class="badge badge-mono max-w-full truncate">{{ files[dataset.key]?.name }}</span>
-          <span class="text-[10.5px] font-light text-[#2f6f92]">
+          <span class="text-[10.5px] font-light text-[color:var(--ink-soft)]">
             {{ formatBytes(files[dataset.key]?.size ?? 0) }}
           </span>
           <button
@@ -330,31 +330,31 @@ onMounted(() => {
           {{ busy ? 'Importing…' : 'Import selected files' }}
         </span>
       </button>
-      <span class="text-[11.5px] font-light text-[#2f6f92]">
+      <span class="text-[11.5px] font-light text-[color:var(--ink-soft)]">
         {{ selected.length }} of 3 files selected · only .csv files are accepted
       </span>
     </div>
 
     <div
       v-if="errorMessage"
-      class="mt-4 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-3 py-2.5"
+      class="mt-4 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-3 py-2.5"
     >
       <div class="flex items-start gap-2">
-        <span class="mt-[1px] shrink-0 text-[#983328]"><AeroIcon name="x" :size="13" /></span>
+        <span class="mt-[1px] shrink-0 text-[color:var(--danger-ink)]"><AeroIcon name="x" :size="13" /></span>
         <div class="min-w-0">
-          <div class="text-[12.5px] leading-relaxed font-normal text-[#983328]">
+          <div class="text-[12.5px] leading-relaxed font-normal text-[color:var(--danger-ink)]">
             {{ errorMessage }}
           </div>
 
           <div v-if="errorDetails.length" class="mt-2">
-            <div class="field-label mb-1 text-[#983328]">
+            <div class="field-label mb-1 text-[color:var(--danger-ink)]">
               Validation details ({{ errorDetails.length }})
             </div>
             <ul class="m-0 list-none space-y-1 p-0">
               <li
                 v-for="(detail, index) in errorDetails"
                 :key="index"
-                class="flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 text-[11.5px] leading-relaxed font-light text-[#7d2b22]"
+                class="flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5 text-[11.5px] leading-relaxed font-light text-[color:var(--danger-ink)]"
               >
                 <span v-if="detail.dataset" class="badge badge-mono">{{ detail.dataset }}</span>
                 <span v-if="detail.field" class="font-normal">{{ detail.field }}:</span>
@@ -372,12 +372,12 @@ onMounted(() => {
 
     <div
       v-if="result"
-      class="mt-4 rounded-[7px] border border-[#a9d9b3] bg-[rgba(238,255,242,0.9)] px-3 py-2.5"
+      class="mt-4 rounded-[7px] border border-[var(--success-border)] bg-[var(--success-surface)] px-3 py-2.5"
     >
       <div class="flex items-start gap-2">
-        <span class="mt-[1px] shrink-0 text-[#2f7d46]"><AeroIcon name="check" :size="14" /></span>
+        <span class="mt-[1px] shrink-0 text-[color:var(--success-ink)]"><AeroIcon name="check" :size="14" /></span>
         <div class="min-w-0">
-          <div class="text-[12.5px] leading-relaxed font-normal text-[#1e6b3f]">
+          <div class="text-[12.5px] leading-relaxed font-normal text-[color:var(--success-ink)]">
             {{ result.message }}
           </div>
 
@@ -400,7 +400,7 @@ onMounted(() => {
             </span>
           </div>
 
-          <p v-if="result.counts" class="mt-2 text-[11.5px] font-light text-[#2a5f7d]">
+          <p v-if="result.counts" class="mt-2 text-[11.5px] font-light text-[color:var(--ink-soft)]">
             The database now holds {{ result.counts.airports }} airports,
             {{ result.counts.airlines }} airlines and {{ result.counts.routes }} routes.
           </p>

@@ -40,10 +40,10 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
     <div class="flex flex-wrap items-center gap-3">
       <div class="orb orb-lg sweep"><AeroIcon name="plane" :size="26" /></div>
       <div>
-        <div class="text-[19px] font-normal tracking-[0.3px] text-[#08354f] [text-shadow:0_1px_0_rgba(255,255,255,0.85)]">
+        <div class="text-[19px] font-normal tracking-[0.3px] text-[color:var(--ink)] [text-shadow:0_1px_0_rgba(255,255,255,0.85)]">
           AirTrip
         </div>
-        <div class="text-[11.5px] font-light tracking-[0.6px] text-[#2c6584]">Flight network explorer</div>
+        <div class="text-[11.5px] font-light tracking-[0.6px] text-[color:var(--ink-soft)]">Flight network explorer</div>
       </div>
       <div class="ml-auto flex items-center gap-2">
         <span class="badge"><AeroIcon name="sparkle" :size="11" /> style tile · v0</span>
@@ -55,10 +55,10 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
     <AeroWindow title="AirTrip — flight network explorer" subtitle="Design language · Frutiger Aero / Web 2.0 Gloss">
       <div class="grid gap-6 md:grid-cols-[1.35fr_1fr] md:items-center">
         <div>
-          <h1 class="m-0 text-[38px] leading-[1.1] font-light tracking-[-0.5px] text-[#08354f] [text-shadow:0_1px_0_rgba(255,255,255,0.9)]">
+          <h1 class="m-0 text-[38px] leading-[1.1] font-light tracking-[-0.5px] text-[color:var(--ink)] [text-shadow:0_1px_0_rgba(255,255,255,0.9)]">
             Bright air, wet glass,<br /><span class="text-[#1272a8]">honest data.</span>
           </h1>
-          <p class="mt-3 max-w-[46ch] text-[13.5px] leading-[1.65] font-light text-[#1d4d6b]">
+          <p class="mt-3 max-w-[46ch] text-[13.5px] leading-[1.65] font-light text-[color:var(--ink-soft)]">
             A visual language for the AirTrip API: glossy hard-stop gradients, one-pixel highlights,
             real reflections and a sky that keeps moving. Everything is drawn with CSS and SVG — no
             wallpapers, no stock art, nothing to license.
@@ -96,14 +96,14 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
       <!-- type -->
       <AeroWindow title="Type" subtitle="Segoe UI / Tahoma · light weights only">
         <div class="space-y-3">
-          <div class="text-[32px] leading-tight font-light tracking-[-0.4px] text-[#08354f]">Display 32 / 300</div>
-          <div class="text-[22px] leading-tight font-light text-[#0a4260]">Heading 22 / 300</div>
-          <div class="text-[15px] font-normal text-[#0a4260]">Subheading 15 / 400</div>
-          <div class="text-[13.5px] leading-[1.65] font-light text-[#1d4d6b]">
+          <div class="text-[32px] leading-tight font-light tracking-[-0.4px] text-[color:var(--ink)]">Display 32 / 300</div>
+          <div class="text-[22px] leading-tight font-light text-[color:var(--ink)]">Heading 22 / 300</div>
+          <div class="text-[15px] font-normal text-[color:var(--ink)]">Subheading 15 / 400</div>
+          <div class="text-[13.5px] leading-[1.65] font-light text-[color:var(--ink-soft)]">
             Body 13.5 / 300 — the workhorse. Long form stays readable on glass because contrast is
             pushed with ink instead of weight.
           </div>
-          <div class="text-[11px] font-normal tracking-[0.14em] text-[#3d7592] uppercase">
+          <div class="text-[11px] font-normal tracking-[0.14em] text-[color:var(--ink-soft)] uppercase">
             Label 11 / 400 · tracked 0.14em
           </div>
           <div class="mono">SYD → MEL · QF 401 · 0 stops</div>
@@ -181,7 +181,7 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
             </div>
           </div>
           <div class="flex items-center justify-between rounded-[8px] border border-white/80 bg-white/40 px-3 py-2.5">
-            <div class="text-[13px] font-light text-[#12405c]">Fuzzy matching</div>
+            <div class="text-[13px] font-light text-[color:var(--ink)]">Fuzzy matching</div>
             <div class="switch" role="switch" aria-checked="true" aria-label="Fuzzy matching">
               <span class="switch-knob" />
             </div>
@@ -222,7 +222,7 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
         </table>
       </div>
       <template #footer>
-        <div class="text-[12px] font-light text-[#2c6584]">Showing 1–5 of 46</div>
+        <div class="text-[12px] font-light text-[color:var(--ink-soft)]">Showing 1–5 of 46</div>
         <div class="ml-auto flex items-center gap-1.5">
           <AeroButton variant="glass" size="sm" icon-only><AeroIcon name="chevron-left" :size="14" /></AeroButton>
           <AeroButton size="sm">1</AeroButton>
@@ -236,7 +236,7 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
     <!-- windows + dialog -->
     <div class="grid gap-5 lg:grid-cols-2">
       <AeroWindow variant="dark" title="Dark glass" subtitle="for dense data and night states">
-        <p class="m-0 text-[13px] leading-[1.65] font-light text-[#dff2ff]">
+        <p class="m-0 text-[13px] leading-[1.65] font-light text-[color:var(--ink-on-dark)]">
           Same chrome, inverted fill. Used sparingly: route detail drawers, import logs, the confirm
           dialog. Never as a full-page background.
         </p>
@@ -253,8 +253,8 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
               <AeroIcon name="trash" :size="16" />
             </div>
             <div>
-              <div class="text-[14px] font-normal text-[#0a4260]">Delete “Winter loop”?</div>
-              <div class="mt-1 text-[12.5px] leading-[1.6] font-light text-[#1d4d6b]">
+              <div class="text-[14px] font-normal text-[color:var(--ink)]">Delete “Winter loop”?</div>
+              <div class="mt-1 text-[12.5px] leading-[1.6] font-light text-[color:var(--ink-soft)]">
                 A plan that still has routes returns <span class="mono">409</span>. Remove its routes first,
                 or the request is rejected.
               </div>
@@ -276,8 +276,8 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
           :key="name"
           class="flex w-[76px] flex-col items-center gap-1.5 rounded-[8px] border border-white/70 bg-white/35 px-2 py-2.5"
         >
-          <AeroIcon :name="name" :size="20" class="text-[#0b5a86]" />
-          <span class="text-[10px] font-light tracking-[0.3px] text-[#2c6584]">{{ name }}</span>
+          <AeroIcon :name="name" :size="20" class="text-[color:var(--ink-soft)]" />
+          <span class="text-[10px] font-light tracking-[0.3px] text-[color:var(--ink-soft)]">{{ name }}</span>
         </div>
       </div>
     </AeroWindow>
@@ -287,7 +287,7 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
       <div class="grid gap-5 md:grid-cols-2">
         <div>
           <div class="field-label">Do</div>
-          <ul class="m-0 list-none space-y-1.5 p-0 text-[13px] leading-[1.6] font-light text-[#12405c]">
+          <ul class="m-0 list-none space-y-1.5 p-0 text-[13px] leading-[1.6] font-light text-[color:var(--ink)]">
             <li>Hard-stop gradients (52/48), one white gloss band on top.</li>
             <li>1px bright inner rim + soft outer shadow = glass, not haze.</li>
             <li>Blur only reads as glass when there is structure behind it; flat sky stays flat.</li>
@@ -297,7 +297,7 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
         </div>
         <div>
           <div class="field-label">Don't</div>
-          <ul class="m-0 list-none space-y-1.5 p-0 text-[13px] leading-[1.6] font-light text-[#12405c]">
+          <ul class="m-0 list-none space-y-1.5 p-0 text-[13px] leading-[1.6] font-light text-[color:var(--ink)]">
             <li>Drop shadows on text; use 1px white light instead.</li>
             <li>Three glass layers stacked — soup. Dense data gets a denser pane.</li>
             <li>Saturated green as a surface colour; it stays an accent.</li>

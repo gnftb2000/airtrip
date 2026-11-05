@@ -212,7 +212,7 @@ async function exportImage(): Promise<void> {
 
     <p
       v-if="error"
-      class="mb-3 flex flex-wrap items-center gap-2 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+      class="mb-3 flex flex-wrap items-center gap-2 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
     >
       <span>{{ error }}</span>
       <button class="btn btn-sm btn-glass ml-auto" @click="load">
@@ -232,7 +232,7 @@ async function exportImage(): Promise<void> {
       <template #cell-name="{ row }">
         <RouterLink
           :to="String(row.edit_path)"
-          class="font-normal text-[#0b5a86] underline decoration-[rgba(11,90,134,0.35)] underline-offset-2 hover:decoration-[#0b5a86]"
+          class="font-normal text-[color:var(--ink-soft)] underline decoration-[rgba(11,90,134,0.35)] underline-offset-2 hover:decoration-[#0b5a86]"
           @click.stop
         >
           {{ row.name }}
@@ -248,7 +248,7 @@ async function exportImage(): Promise<void> {
         <span class="mono">{{ value }}</span>
       </template>
       <template #cell-updated_label="{ value }">
-        <span class="font-light text-[#255b78]">{{ value }}</span>
+        <span class="font-light text-[color:var(--ink-soft)]">{{ value }}</span>
       </template>
       <template #cell-actions="{ row }">
         <div class="flex items-center justify-end gap-1.5">
@@ -291,15 +291,15 @@ async function exportImage(): Promise<void> {
     :subtitle="deleteTarget?.name ?? ''"
     width="440px"
   >
-    <p class="text-[13px] leading-relaxed font-light text-[#255b78]">
+    <p class="text-[13px] leading-relaxed font-light text-[color:var(--ink-soft)]">
       This plan and its route list will be removed. The routes themselves stay in the network, so
       other plans that use them are not affected.
     </p>
-    <p v-if="deleteTarget" class="mt-2 text-[12.5px] font-light text-[#2f6683]">
+    <p v-if="deleteTarget" class="mt-2 text-[12.5px] font-light text-[color:var(--ink-soft)]">
       {{ deleteTarget.route_count }} route{{ deleteTarget.route_count === 1 ? '' : 's' }} in this
       plan.
     </p>
-    <p class="mt-2 text-[12px] font-light text-[#983328]">This cannot be undone.</p>
+    <p class="mt-2 text-[12px] font-light text-[color:var(--danger-ink)]">This cannot be undone.</p>
 
     <template #footer>
       <button class="btn btn-sm btn-glass" :disabled="deleting" @click="closeDelete">

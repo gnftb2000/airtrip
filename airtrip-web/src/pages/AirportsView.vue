@@ -132,7 +132,7 @@ function open(code: string): void {
       </label>
       <label class="flex items-end gap-2 pb-1">
         <input v-model="filters.fuzzy" type="checkbox" class="checkbox" />
-        <span class="text-[12.5px] font-light text-[#255b78]">Fuzzy matching</span>
+        <span class="text-[12.5px] font-light text-[color:var(--ink-soft)]">Fuzzy matching</span>
       </label>
       <label class="block">
         <span class="field-label">Rows per page</span>
@@ -159,7 +159,7 @@ function open(code: string): void {
 
     <p
       v-if="error"
-      class="mb-3 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+      class="mb-3 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
     >
       {{ error }}
     </p>
@@ -176,7 +176,7 @@ function open(code: string): void {
         <span class="badge badge-mono">{{ value }}</span>
       </template>
       <template #cell-name="{ value }">
-        <span class="font-normal text-[#08354f]">{{ value }}</span>
+        <span class="font-normal text-[color:var(--ink)]">{{ value }}</span>
       </template>
       <template #empty>
         <AeroEmpty

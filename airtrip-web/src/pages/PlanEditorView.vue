@@ -250,7 +250,7 @@ async function save(): Promise<void> {
 
   <p
     v-if="error"
-    class="mb-4 rounded-[8px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.9)] px-3 py-2 text-[12.5px] text-[#983328]"
+    class="mb-4 rounded-[8px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-3 py-2 text-[12.5px] text-[color:var(--danger-ink)]"
   >
     {{ error }}
   </p>
@@ -286,7 +286,7 @@ async function save(): Promise<void> {
           </div>
         </div>
 
-        <p v-if="isEdit" class="text-[11.5px] leading-relaxed font-light text-[#3d7592]">
+        <p v-if="isEdit" class="text-[11.5px] leading-relaxed font-light text-[color:var(--ink-soft)]">
           Changes replace the stored route list: routes you add are appended, routes you remove are
           dropped. The plan is protected while it still has routes.
         </p>
@@ -311,7 +311,7 @@ async function save(): Promise<void> {
         :loading="loading"
       >
         <template #cell-route_id="{ value }">
-          <span class="mono text-[#0a4260]">{{ value }}</span>
+          <span class="mono text-[color:var(--ink)]">{{ value }}</span>
         </template>
         <template #cell-airline_iata="{ value }">
           <span class="badge badge-mono">{{ value }}</span>
@@ -389,7 +389,7 @@ async function save(): Promise<void> {
       />
 
       <div class="flex items-center gap-2 pt-1">
-        <span class="text-[12px] font-light text-[#2f6683]">{{ picked.size }} selected</span>
+        <span class="text-[12px] font-light text-[color:var(--ink-soft)]">{{ picked.size }} selected</span>
         <button class="btn ml-auto" :disabled="!picked.size" @click="commitPicked">
           <span class="btn-label">Add to plan</span>
         </button>

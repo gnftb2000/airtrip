@@ -303,7 +303,7 @@ watch(deleteOpen, (open) => {
 
     <div
       v-if="error"
-      class="mb-3 flex flex-wrap items-center gap-2 rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+      class="mb-3 flex flex-wrap items-center gap-2 rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
     >
       <span>{{ error }}</span>
       <button class="btn btn-sm btn-glass ml-auto" @click="load">
@@ -318,7 +318,7 @@ watch(deleteOpen, (open) => {
       :loading="loading"
     >
       <template #cell-username="{ value }">
-        <span class="font-normal text-[#08354f]">{{ value }}</span>
+        <span class="font-normal text-[color:var(--ink)]">{{ value }}</span>
       </template>
 
       <template #cell-role="{ value }">
@@ -336,7 +336,7 @@ watch(deleteOpen, (open) => {
       </template>
 
       <template #cell-created_at="{ value }">
-        <span class="text-[12px] font-light text-[#2f6683]">{{ formatDate(value) }}</span>
+        <span class="text-[12px] font-light text-[color:var(--ink-soft)]">{{ formatDate(value) }}</span>
       </template>
 
       <template #cell-actions="{ row }">
@@ -436,7 +436,7 @@ watch(deleteOpen, (open) => {
 
       <p
         v-if="createError"
-        class="rounded-[7px] border border-[#e2b0a8] bg-[rgba(255,238,235,0.85)] px-2.5 py-2 text-[12px] text-[#983328]"
+        class="rounded-[7px] border border-[var(--danger-border)] bg-[var(--danger-surface)] px-2.5 py-2 text-[12px] text-[color:var(--danger-ink)]"
       >
         {{ createError }}
       </p>
@@ -445,7 +445,7 @@ watch(deleteOpen, (open) => {
     </form>
 
     <template #footer>
-      <span class="text-[11.5px] font-light text-[#2f6f92]">The password is never shown again.</span>
+      <span class="text-[11.5px] font-light text-[color:var(--ink-soft)]">The password is never shown again.</span>
       <div class="ml-auto flex items-center gap-2">
         <button class="btn btn-sm btn-glass" @click="createOpen = false">
           <span class="btn-label">Cancel</span>
@@ -483,10 +483,10 @@ watch(deleteOpen, (open) => {
         <AeroIcon name="trash" :size="16" />
       </div>
       <div class="min-w-0">
-        <div class="text-[14px] font-normal text-[#0a4260]">
+        <div class="text-[14px] font-normal text-[color:var(--ink)]">
           Delete “{{ deleteTarget?.username }}”?
         </div>
-        <p class="mt-1 text-[12.5px] leading-relaxed font-light text-[#1d4d6b]">
+        <p class="mt-1 text-[12.5px] leading-relaxed font-light text-[color:var(--ink-soft)]">
           The account and every travel plan it created will be removed. This action cannot be
           reversed.
         </p>
