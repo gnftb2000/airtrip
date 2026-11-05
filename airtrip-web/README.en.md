@@ -54,7 +54,8 @@ The design system itself is documented in
 [`docs/style-tile-desktop.webp`](docs/style-tile-desktop.webp); the live version
 is `/app/style-tile`. The Aqua re-skin is sketched in
 [`docs/style-tile-compare.webp`](docs/style-tile-compare.webp) and served at
-`/app/style-tile-aqua` (top: v0, bottom: Aqua). Its photographic background is a
+`/app/style-tile-aqua` (top: v0, bottom: Aqua). Type on the glass is white at 300 weight with a dark shadow; title bars,
+buttons and fields keep dark ink. Its photographic background is a
 user-supplied wallpaper ([`docs/style-tile-aqua-backgrounds.webp`](docs/style-tile-aqua-backgrounds.webp)
 compares it with the CSS-only sky); swap `src/assets/aero-wallpaper.webp` or use
 `?bg=css` if the image cannot be cleared for distribution.

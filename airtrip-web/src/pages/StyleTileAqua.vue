@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import AeroWindow from '@/components/AeroWindow.vue'
 import AeroButton from '@/components/AeroButton.vue'
 import AeroIcon from '@/components/AeroIcon.vue'
@@ -30,11 +30,9 @@ onBeforeUnmount(() => {
 })
 
 // The page header sits straight on the scene, so its ink flips on the photo.
-const brandInk = computed(() => (wallpaper.value ? '#ffffff' : '#053a4c'))
-const brandShadow = computed(() =>
-  wallpaper.value ? '0 2px 6px rgba(0, 24, 48, 0.55)' : '0 1px 0 rgba(255,255,255,0.9)',
-)
-const brandSub = computed(() => (wallpaper.value ? 'rgba(255,255,255,0.9)' : '#2c7389'))
+const brandInk = '#ffffff'
+const brandShadow = '0 2px 6px rgba(0, 20, 42, 0.6)'
+const brandSub = 'rgba(255, 255, 255, 0.88)'
 
 const palette = [
   { name: 'Sky high', hex: '#A6F2FF', ink: '#053a4c' },
@@ -111,10 +109,10 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
     <AeroWindow title="AirTrip — aqua skin" subtitle="Style tile v2 · white edges, cyan glow, 8px glass">
       <div class="grid gap-6 md:grid-cols-[1.35fr_1fr] md:items-center">
         <div>
-          <h1 class="m-0 text-[38px] leading-[1.1] font-light tracking-[-0.5px] text-[#053a4c] [text-shadow:0_1px_0_rgba(255,255,255,0.95)]">
-            Wet turquoise,<br /><span class="text-[#0e96b0]">white edge.</span>
+          <h1 class="t-display m-0 text-[38px] leading-[1.1] font-light tracking-[-0.5px]">
+            Wet turquoise,<br /><span class="t-accent">white edge.</span>
           </h1>
-          <p class="mt-3 mb-0 max-w-[46ch] text-[13.5px] leading-[1.65] font-light text-[#0a4a5e]">
+          <p class="t-body mt-3 mb-0 max-w-[46ch] text-[13.5px] leading-[1.65] font-light">
             The same panes and tables, re-cut in the Aqua recipe: every glass surface gets a
             1.5&nbsp;px pure-white edge, an inner cyan glow and a wider blur, controls turn into
             white pills, and the scene drops to a turquoise sky over a painted grass horizon.
@@ -146,7 +144,7 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
           }"
         >
           <div class="text-[11px] tracking-[0.3px] opacity-80">{{ c.name }}</div>
-          <div class="mono text-[12px]">{{ c.hex }}</div>
+          <div class="swatch-mono mono text-[12px]">{{ c.hex }}</div>
         </div>
       </div>
     </AeroWindow>
@@ -154,15 +152,15 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
     <div class="grid gap-5 lg:grid-cols-[1.05fr_1fr]">
       <!-- type -->
       <AeroWindow title="Type" subtitle="Segoe UI / Inter · light weights only">
-        <div class="text-[32px] leading-[1.1] font-light text-[#053a4c]">Display 32 / 300</div>
-        <div class="mt-1 text-[22px] font-light text-[#0a4a5e]">Heading 22 / 300</div>
-        <div class="mt-1 text-[15px] text-[#0a4a5e]">Subheading 15 / 400</div>
-        <p class="mt-2 max-w-[52ch] text-[13.5px] leading-[1.65] font-light text-[#1b5b6d]">
+        <div class="t-display text-[32px] leading-[1.1] font-light">Display 32 / 300</div>
+        <div class="t-ink mt-1 text-[22px] font-light">Heading 22 / 300</div>
+        <div class="t-ink mt-1 text-[15px]">Subheading 15 / 400</div>
+        <p class="t-body mt-2 max-w-[52ch] text-[13.5px] leading-[1.65] font-light">
           Body 13.5 / 300 — white edges buy contrast, so long form can stay light. Numbers and
           codes keep tabular figures so columns line up.
         </p>
-        <div class="mt-2 text-[11px] tracking-[0.14em] text-[#2c7389]">LABEL 11 / 400 · TRACKED 0.14EM</div>
-        <div class="mt-1.5 mono text-[12.5px] text-[#0a4a5e]">SYD → MEL · QF 401 · 0 stops</div>
+        <div class="t-label mt-2 text-[11px] tracking-[0.14em]">LABEL 11 / 400 · TRACKED 0.14EM</div>
+        <div class="t-mono mt-1.5 mono text-[12.5px]">SYD → MEL · QF 401 · 0 stops</div>
       </AeroWindow>
 
       <!-- status -->
@@ -218,7 +216,7 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
               <input class="field" value="MEL" />
             </label>
           </div>
-          <div class="flex items-center gap-2 text-[13px] text-[#0a4a5e]">
+          <div class="t-ink flex items-center gap-2 text-[13px]">
             <input id="fuzzy-aqua" class="checkbox" type="checkbox" checked />
             <label for="fuzzy-aqua">Fuzzy matching</label>
           </div>
@@ -270,12 +268,12 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
 
       <!-- dialog -->
       <AeroWindow title="Dialog" subtitle="destructive action · 409 protected">
-        <div class="rounded-[10px] border border-white/90 bg-white/35 p-4 shadow-[inset_0_0_16px_rgba(148,246,255,0.45)]">
+        <div class="aqua-inset rounded-[10px] border border-white/60 p-4">
           <div class="flex items-start gap-3">
             <div class="orb orb-lg"><AeroIcon name="trash" :size="16" /></div>
             <div class="min-w-0">
-              <div class="text-[14.5px] text-[#053a4c]">Delete “Winter loop”?</div>
-              <p class="mt-1 mb-0 text-[13px] leading-[1.6] font-light text-[#1b5b6d]">
+              <div class="t-ink text-[14.5px]">Delete “Winter loop”?</div>
+              <p class="t-body mt-1 mb-0 text-[13px] leading-[1.6] font-light">
                 A plan that still has routes returns 409. Remove its routes first, or the request is
                 rejected.
               </p>
@@ -298,38 +296,39 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
           class="tile flex w-[72px] flex-col items-center gap-1.5 px-2 py-2.5"
         >
           <AeroIcon :name="i" :size="18" />
-          <span class="text-[10.5px] tracking-[0.3px] text-[#2c7389]">{{ i }}</span>
+          <span class="t-label text-[10.5px] tracking-[0.3px]">{{ i }}</span>
         </div>
       </div>
     </AeroWindow>
 
     <!-- rules -->
     <AeroWindow title="Rules of the aqua skin" subtitle="what changed vs v0">
-      <div class="grid gap-4 text-[13px] leading-[1.6] font-light text-[#0a4a5e] md:grid-cols-2">
+      <div class="t-body grid gap-4 text-[13px] leading-[1.6] font-light md:grid-cols-2">
         <div>
-          <div class="mb-1.5 text-[11px] tracking-[0.14em] text-[#2c7389]">DO</div>
+          <div class="t-label mb-1.5 text-[11px] tracking-[0.14em]">DO</div>
           <ul class="m-0 grid list-none gap-1.5 p-0">
             <li>1.5 px pure-white edge on every pane, tile, field and badge.</li>
             <li>Inner cyan glow <span class="mono">inset 0 0 20px #94f6ff66</span> instead of a dark rim.</li>
+            <li>Body type is white at 300 weight with a 1 px dark shadow; the glass holds it at 46% ink.</li>
             <li>Glass reads at <span class="mono">blur(8px) saturate(150%)</span> — wider than v0, so edges stay soft.</li>
             <li>Controls are 45 px pills; only fields keep an 8 px radius.</li>
             <li>Sky is turquoise with a painted grass horizon; no photographic wallpaper.</li>
           </ul>
         </div>
         <div>
-          <div class="mb-1.5 text-[11px] tracking-[0.14em] text-[#2c7389]">DON'T</div>
+          <div class="t-label mb-1.5 text-[11px] tracking-[0.14em]">DON'T</div>
           <ul class="m-0 grid list-none gap-1.5 p-0">
             <li>Copy their wallpapers, icon packs or mascot — the site says it does not own them.</li>
             <li>Put the glossy row-card treatment on data tables; they go muddy fast.</li>
             <li>Stack more than two glass layers; white edges multiply into mush.</li>
-            <li>Use white text on light glass; ink at 300 weight is the contrast.</li>
+            <li>Put white type on the pale chrome — bars, buttons and fields keep dark ink.</li>
             <li>Animate the glow — it cheapens the material.</li>
           </ul>
         </div>
       </div>
     </AeroWindow>
 
-    <div class="pb-2 text-center text-[11.5px] tracking-[0.5px] text-[#1b5b6d]">
+    <div class="t-label pb-2 text-center text-[11.5px] tracking-[0.5px]">
       AirTrip · aqua skin v2 · CSS + SVG only · no external assets
     </div>
   </div>

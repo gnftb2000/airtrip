@@ -29,7 +29,7 @@
   --ink-soft: #2c7389;
   --ink-faint: rgba(5, 58, 76, 0.55);
 
-  --glass-fill: rgba(255, 255, 255, 0.18);
+  --glass-fill: rgba(4, 40, 58, 0.46);
   --glass-edge: #ffffff;
   --glass-line: rgba(255, 255, 255, 0.9);
 
@@ -108,7 +108,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(4, 34, 62, 0.18) 0%, rgba(4, 34, 62, 0.02) 26%, rgba(4, 40, 60, 0.08) 62%, rgba(3, 40, 55, 0.3) 100%);
+  background: linear-gradient(180deg, rgba(4, 30, 56, 0.24) 0%, rgba(4, 34, 62, 0.04) 26%, rgba(4, 40, 60, 0.1) 62%, rgba(3, 40, 55, 0.34) 100%);
   pointer-events: none;
 }
 
@@ -129,16 +129,28 @@
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
+/* The painted sky is brighter than a photograph, so it needs more ink
+   under white type; the wallpaper carries its own contrast. */
+[data-theme='aqua']:not([data-wallpaper='on']) {
+  --glass-fill: rgba(3, 34, 50, 0.58);
+}
+
+[data-theme='aqua']:not([data-wallpaper='on']) .win-dense {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 32%, rgba(255, 255, 255, 0.01) 100%),
+    rgba(3, 30, 45, 0.66);
+}
+
 /* ---------- glass ---------- */
 
 [data-theme='aqua'] .win {
   background:
-    linear-gradient(112deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.06) 22%, rgba(255, 255, 255, 0) 44%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.09) 26%, rgba(255, 255, 255, 0.02) 60%, rgba(255, 255, 255, 0.06) 100%),
+    linear-gradient(112deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 22%, rgba(255, 255, 255, 0) 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.06) 26%, rgba(255, 255, 255, 0.01) 60%, rgba(255, 255, 255, 0.04) 100%),
     var(--glass-fill);
   border: 1.5px solid #ffffff;
-  backdrop-filter: blur(8px) saturate(1.65) brightness(1.01);
-  -webkit-backdrop-filter: blur(8px) saturate(1.65) brightness(1.01);
+  backdrop-filter: blur(8px) saturate(1.7) brightness(0.94);
+  -webkit-backdrop-filter: blur(8px) saturate(1.7) brightness(0.94);
   box-shadow:
     inset 0 0 20px rgba(148, 246, 255, 0.45),
     inset 0 1px 0 #ffffff,
@@ -150,8 +162,8 @@
 
 [data-theme='aqua'] .win-dense {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.06) 32%, rgba(255, 255, 255, 0.01) 100%),
-    rgba(226, 252, 255, 0.30);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 32%, rgba(255, 255, 255, 0.01) 100%),
+    rgba(4, 38, 55, 0.55);
 }
 
 [data-theme='aqua'] .win-bar {
@@ -186,10 +198,10 @@
 [data-theme='aqua'] .tile {
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.52) 0%,
-    rgba(196, 255, 250, 0.30) 46%,
-    rgba(37, 209, 248, 0.2) 46.5%,
-    rgba(0, 208, 255, 0.24) 100%
+    rgba(255, 255, 255, 0.28) 0%,
+    rgba(180, 250, 255, 0.14) 46%,
+    rgba(10, 90, 120, 0.26) 46.5%,
+    rgba(4, 58, 82, 0.34) 100%
   );
   border: 1.5px solid #ffffff;
   box-shadow:
@@ -199,18 +211,25 @@
 }
 
 [data-theme='aqua'] .aero-table thead th {
-  color: #05434f;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(186, 246, 255, 0.7));
-  border-bottom: 1.5px solid #ffffff;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 16, 32, 0.6);
+  background: linear-gradient(180deg, rgba(4, 46, 66, 0.46), rgba(6, 62, 86, 0.38));
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.75);
 }
 
 [data-theme='aqua'] .aero-table tbody td {
-  color: #0a4457;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 16, 32, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(4, 46, 66, 0.26);
 }
 
-[data-theme='aqua'] .aero-table tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.18);
+[data-theme='aqua'] .aero-table tbody tr:nth-child(even) td {
+  background: rgba(4, 46, 66, 0.36);
+}
+
+[data-theme='aqua'] .aero-table tbody tr:hover td {
+  background: rgba(10, 92, 126, 0.48);
 }
 
 /* ---------- controls ---------- */
@@ -310,4 +329,55 @@
   background: linear-gradient(180deg, #ffffff 0%, #d6f8ff 46%, #9ee3f6 100%);
   border-color: #ffffff;
   text-shadow: 0 1px 0 #ffffff;
+}
+
+/* ---------- light ink: white type with a dark shadow (FrutigerOS recipe) ---------- */
+
+[data-theme='aqua'] .win-body {
+  color: #ffffff;
+}
+
+[data-theme='aqua'] .t-display,
+[data-theme='aqua'] .t-ink,
+[data-theme='aqua'] .t-body,
+[data-theme='aqua'] .stat-value {
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 12, 24, 0.78), 0 0 12px rgba(0, 18, 34, 0.3);
+}
+
+[data-theme='aqua'] .t-accent {
+  color: #c4f9ff;
+  text-shadow: 0 1px 2px rgba(0, 14, 28, 0.6);
+}
+
+[data-theme='aqua'] .t-ink-soft,
+[data-theme='aqua'] .t-label,
+[data-theme='aqua'] .stat-label,
+[data-theme='aqua'] .field-label {
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 2px rgba(0, 14, 28, 0.55);
+}
+
+[data-theme='aqua'] .t-mono,
+[data-theme='aqua'] .win-body .mono {
+  color: #d8fbff;
+  text-shadow: 0 1px 2px rgba(0, 14, 28, 0.55);
+}
+
+/* colour chips print their own ink, so they opt out of the light mono tone */
+[data-theme='aqua'] .swatch-mono {
+  color: inherit;
+  text-shadow: none;
+}
+
+/* the pop-up inside the dialog is a second glass layer, not a white card */
+[data-theme='aqua'] .aqua-inset {
+  background: rgba(2, 32, 48, 0.34);
+  border-color: rgba(255, 255, 255, 0.55);
+  box-shadow: inset 0 0 18px rgba(148, 246, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+[data-theme='aqua'] .win .field {
+  color: #05434f;
+  text-shadow: none;
 }

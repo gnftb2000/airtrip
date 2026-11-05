@@ -54,7 +54,8 @@ npm run build                          # 产物写入 dist/，由 Flask 在 /app
 [`docs/style-tile-desktop.webp`](docs/style-tile-desktop.webp)，运行中的版本是
 `/app/style-tile`。Aqua 皮肤的对比样张见
 [`docs/style-tile-compare.webp`](docs/style-tile-compare.webp)（上：v0，下：Aqua），
-线上版本是 `/app/style-tile-aqua`。它的照片背景是你提供的壁纸
+线上版本是 `/app/style-tile-aqua`。玻璃上的文字是 300 字重的白色 + 深色阴影；标题栏、按钮、输入框保留深色文字。
+它的照片背景是你提供的壁纸
 （[`docs/style-tile-aqua-backgrounds.webp`](docs/style-tile-aqua-backgrounds.webp)
 是照片与纯 CSS 天空的对比）；如果这张图不能随仓库公开分发，替换
 `src/assets/aero-wallpaper.webp` 或改用 `?bg=css` 即可。
