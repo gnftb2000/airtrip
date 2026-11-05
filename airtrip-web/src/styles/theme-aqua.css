@@ -92,7 +92,7 @@
 
 [data-theme='aqua'][data-wallpaper='on'] .aero-scene {
   background:
-    url('../assets/aero-wallpaper.webp') center 72% / cover no-repeat,
+    url('../assets/aero-wallpaper.webp') center 58% / cover no-repeat,
     linear-gradient(180deg, #1670c8 0%, #4fb6e8 55%, #7ed06a 100%);
 }
 
