@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import AeroWindow from '@/components/AeroWindow.vue'
 import AeroButton from '@/components/AeroButton.vue'
 import AeroIcon from '@/components/AeroIcon.vue'
@@ -7,14 +7,34 @@ import AeroIcon from '@/components/AeroIcon.vue'
 // The theme is a document-level switch so the shared background scene
 // re-skins itself; the previous value is restored when the page unmounts.
 let previous: string | null = null
+
+// Swap between the painted CSS sky and the photographic wallpaper.
+// ?bg=css renders the painted sky, default is the photographic wallpaper
+const wallpaper = ref(new URLSearchParams(window.location.search).get('bg') !== 'css')
+const root = () => document.documentElement
+
+watch(wallpaper, (on) => {
+  if (on) root().setAttribute('data-wallpaper', 'on')
+  else root().removeAttribute('data-wallpaper')
+})
+
 onMounted(() => {
-  previous = document.documentElement.getAttribute('data-theme')
-  document.documentElement.setAttribute('data-theme', 'aqua')
+  previous = root().getAttribute('data-theme')
+  root().setAttribute('data-theme', 'aqua')
+  if (wallpaper.value) root().setAttribute('data-wallpaper', 'on')
 })
 onBeforeUnmount(() => {
-  if (previous) document.documentElement.setAttribute('data-theme', previous)
-  else document.documentElement.removeAttribute('data-theme')
+  if (previous) root().setAttribute('data-theme', previous)
+  else root().removeAttribute('data-theme')
+  root().removeAttribute('data-wallpaper')
 })
+
+// The page header sits straight on the scene, so its ink flips on the photo.
+const brandInk = computed(() => (wallpaper.value ? '#ffffff' : '#053a4c'))
+const brandShadow = computed(() =>
+  wallpaper.value ? '0 2px 6px rgba(0, 24, 48, 0.55)' : '0 1px 0 rgba(255,255,255,0.9)',
+)
+const brandSub = computed(() => (wallpaper.value ? 'rgba(255,255,255,0.9)' : '#2c7389'))
 
 const palette = [
   { name: 'Sky high', hex: '#A6F2FF', ink: '#053a4c' },
@@ -53,14 +73,35 @@ const icons = ['plane', 'tower', 'route', 'plan', 'users', 'upload', 'gauge', 's
     <div class="flex flex-wrap items-center gap-3">
       <div class="orb orb-lg sweep"><AeroIcon name="plane" :size="26" /></div>
       <div>
-        <div class="text-[19px] font-normal tracking-[0.3px] text-[#053a4c] [text-shadow:0_1px_0_rgba(255,255,255,0.9)]">
+        <div
+          class="text-[19px] font-normal tracking-[0.3px]"
+          :style="{ color: brandInk, textShadow: brandShadow }"
+        >
           AirTrip
         </div>
-        <div class="text-[11.5px] font-light tracking-[0.6px] text-[#2c7389]">Flight network explorer</div>
+        <div class="text-[11.5px] font-light tracking-[0.6px]" :style="{ color: brandSub }">
+          Flight network explorer
+        </div>
       </div>
       <div class="ml-auto flex items-center gap-2">
-        <span class="badge"><AeroIcon name="sparkle" :size="11" /> style tile · v2 aqua</span>
-        <RouterLink to="/style-tile" class="badge" style="text-decoration: none">
+        <span class="badge whitespace-nowrap"><AeroIcon name="sparkle" :size="11" /> style tile · v2 aqua</span>
+        <button
+          type="button"
+          class="badge whitespace-nowrap"
+          :style="{ borderColor: wallpaper ? '#ffffff' : 'rgba(255,255,255,0.6)', opacity: wallpaper ? 1 : 0.75 }"
+          @click="wallpaper = true"
+        >
+          <AeroIcon name="globe" :size="11" /> wallpaper
+        </button>
+        <button
+          type="button"
+          class="badge whitespace-nowrap"
+          :style="{ borderColor: wallpaper ? 'rgba(255,255,255,0.6)' : '#ffffff', opacity: wallpaper ? 0.75 : 1 }"
+          @click="wallpaper = false"
+        >
+          <AeroIcon name="sparkle" :size="11" /> CSS sky
+        </button>
+        <RouterLink to="/style-tile" class="badge whitespace-nowrap" style="text-decoration: none">
           <AeroIcon name="chevron-left" :size="11" /> v0
         </RouterLink>
       </div>

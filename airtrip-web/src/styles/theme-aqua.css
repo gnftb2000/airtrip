@@ -88,6 +88,38 @@
   background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.55) 0%, rgba(190, 250, 255, 0.28) 46%, rgba(190, 250, 255, 0) 72%);
 }
 
+/* ---------- optional photographic wallpaper (user-supplied) ---------- */
+
+[data-theme='aqua'][data-wallpaper='on'] .aero-scene {
+  background:
+    url('../assets/aero-wallpaper.webp') center 72% / cover no-repeat,
+    linear-gradient(180deg, #1670c8 0%, #4fb6e8 55%, #7ed06a 100%);
+}
+
+[data-theme='aqua'][data-wallpaper='on'] .aero-sun,
+[data-theme='aqua'][data-wallpaper='on'] .aero-shaft,
+[data-theme='aqua'][data-wallpaper='on'] .aero-hills,
+[data-theme='aqua'][data-wallpaper='on'] .aero-cloud {
+  display: none;
+}
+
+/* a soft scrim keeps text over grass/skyline as calm as over the painted sky */
+[data-theme='aqua'][data-wallpaper='on'] .aero-scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 34, 62, 0.18) 0%, rgba(4, 34, 62, 0.02) 26%, rgba(4, 40, 60, 0.08) 62%, rgba(3, 40, 55, 0.3) 100%);
+  pointer-events: none;
+}
+
+[data-theme='aqua'][data-wallpaper='on'] .aero-glare {
+  opacity: 0.22;
+}
+
+[data-theme='aqua'][data-wallpaper='on'] .aero-bubble {
+  opacity: 0.5;
+}
+
 [data-theme='aqua'] .aero-cloud {
   background: radial-gradient(closest-side, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 66%, rgba(255, 255, 255, 0) 100%);
 }

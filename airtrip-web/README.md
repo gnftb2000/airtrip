@@ -39,7 +39,7 @@ npm run build                          # 产物写入 dist/，由 Flask 在 /app
 | `/plans`、`/plans/new`、`/plans/:id/edit` | 私有行程、航线选择器、JSON/PNG 导出 |
 | `/users`、`/import` | 管理员专用：账号管理与 CSV 导入 |
 | `/style-tile` | 设计系统的可视化说明页 |
-| `/style-tile-aqua` | 样张 v2：同样的组件，Aqua 皮肤（`src/styles/theme-aqua.css`） |
+| `/style-tile-aqua` | 样张 v2：同样的组件，Aqua 皮肤（`src/styles/theme-aqua.css`）；加 `?bg=css` 用 CSS 画的天空替代照片背景 |
 
 ## 界面截图
 
@@ -54,7 +54,10 @@ npm run build                          # 产物写入 dist/，由 Flask 在 /app
 [`docs/style-tile-desktop.webp`](docs/style-tile-desktop.webp)，运行中的版本是
 `/app/style-tile`。Aqua 皮肤的对比样张见
 [`docs/style-tile-compare.webp`](docs/style-tile-compare.webp)（上：v0，下：Aqua），
-线上版本是 `/app/style-tile-aqua`。
+线上版本是 `/app/style-tile-aqua`。它的照片背景是你提供的壁纸
+（[`docs/style-tile-aqua-backgrounds.webp`](docs/style-tile-aqua-backgrounds.webp)
+是照片与纯 CSS 天空的对比）；如果这张图不能随仓库公开分发，替换
+`src/assets/aero-wallpaper.webp` 或改用 `?bg=css` 即可。
 
 ## 目录结构
 
