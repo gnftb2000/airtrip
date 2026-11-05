@@ -31,7 +31,9 @@ SQLite database that is created next to the code on first run.
 - **Web client** at `/app` — a single-page app over the same API: a Frutiger-Aero
   styled network explorer (airports, airlines, routes), private travel plans with
   a route picker, account administration and CSV import.
-
+  
+Toggle for when you want the cards to have a frosted texture:
+http://127.0.0.1:5055/app/dashboard?frost=1
 ## Project layout
 
 | Path | Purpose |
