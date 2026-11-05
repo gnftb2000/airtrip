@@ -138,31 +138,14 @@
 [data-theme='aqua']:not([data-wallpaper='on']) .win-dense {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 32%, rgba(255, 255, 255, 0.01) 100%),
-    rgba(3, 30, 45, 0.38);
-}
-
-/* A very clear pane cannot guarantee contrast on its own: the wallpaper has
-   bright clouds. This soft veil sits behind the content only, so the type keeps
-   a darker bed while the edges of the pane stay fully transparent. */
-[data-theme='aqua'] .win-body {
-  position: relative;
-  isolation: isolate;
-}
-
-[data-theme='aqua'] .win-body::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(120% 90% at 0% 0%, rgba(2, 20, 34, 0.16) 0%, rgba(2, 20, 34, 0.05) 44%, rgba(2, 20, 34, 0) 72%);
+    rgba(3, 30, 45, 0.5);
 }
 
 /* ---------- glass ---------- */
 
 [data-theme='aqua'] .win {
   background:
+    radial-gradient(120% 90% at 0% 0%, rgba(2, 20, 34, 0.16) 0%, rgba(2, 20, 34, 0.05) 44%, rgba(2, 20, 34, 0) 72%),
     linear-gradient(112deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 22%, rgba(255, 255, 255, 0) 44%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.06) 26%, rgba(255, 255, 255, 0.01) 60%, rgba(255, 255, 255, 0.04) 100%),
     var(--glass-fill);
@@ -181,7 +164,7 @@
 [data-theme='aqua'] .win-dense {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 32%, rgba(255, 255, 255, 0.01) 100%),
-    rgba(4, 38, 55, 0.30);
+    rgba(4, 38, 55, 0.45);
 }
 
 [data-theme='aqua'] .win-bar {
