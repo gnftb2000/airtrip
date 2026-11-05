@@ -54,7 +54,7 @@ npm run build                          # 产物写入 dist/，由 Flask 在 /app
 [`docs/style-tile-desktop.webp`](docs/style-tile-desktop.webp)，运行中的版本是
 `/app/style-tile`。Aqua 皮肤的对比样张见
 [`docs/style-tile-compare.webp`](docs/style-tile-compare.webp)（上：v0，下：Aqua），
-线上版本是 `/app/style-tile-aqua`。玻璃上的文字是 300 字重的白色 + 深色阴影；标题栏、按钮、输入框保留深色文字。
+线上版本是 `/app/style-tile-aqua`。玻璃是很淡的一层（`--glass-fill` 约 15%），文字是 300 字重的白色 + 深色阴影；标题栏、按钮、输入框保留深色文字。想试别的浓度可以直接改 URL：`?fill=0.30`（玻璃浓度）、`?dim=0.86`（整体压暗），见 `docs/glass-fill-ladder.webp`。
 它的照片背景是你提供的壁纸
 （[`docs/style-tile-aqua-backgrounds.webp`](docs/style-tile-aqua-backgrounds.webp)
 是照片与纯 CSS 天空的对比）；如果这张图不能随仓库公开分发，替换

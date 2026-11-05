@@ -11,8 +11,13 @@ let previous: string | null = null
 // Swap between the painted CSS sky and the photographic wallpaper.
 // ?fill=0.38 overrides the glass alpha on the fly, so the mix can be tuned
 // without editing the stylesheet (?bg=css renders the painted sky instead).
-const fillParam = Number(new URLSearchParams(window.location.search).get('fill'))
+const params = new URLSearchParams(window.location.search)
+const fillParam = Number(params.get('fill'))
 const glassFill = Number.isFinite(fillParam) && fillParam > 0 ? Math.min(fillParam, 1) : null
+// ?dim= darkens the backdrop instead of tinting it: keeps the glass clear
+// while white type still finds something to sit on.
+const dimParam = Number(params.get('dim'))
+const glassDim = Number.isFinite(dimParam) && dimParam > 0 ? Math.min(dimParam, 1) : null
 
 // ?bg=css renders the painted sky, default is the photographic wallpaper
 const wallpaper = ref(new URLSearchParams(window.location.search).get('bg') !== 'css')
@@ -28,12 +33,14 @@ onMounted(() => {
   root().setAttribute('data-theme', 'aqua')
   if (wallpaper.value) root().setAttribute('data-wallpaper', 'on')
   if (glassFill !== null) root().style.setProperty('--glass-fill', `rgba(4, 40, 58, ${glassFill})`)
+  if (glassDim !== null) root().style.setProperty('--glass-dim', String(glassDim))
 })
 onBeforeUnmount(() => {
   if (previous) root().setAttribute('data-theme', previous)
   else root().removeAttribute('data-theme')
   root().removeAttribute('data-wallpaper')
   root().style.removeProperty('--glass-fill')
+  root().style.removeProperty('--glass-dim')
 })
 
 // The page header sits straight on the scene, so its ink flips on the photo.

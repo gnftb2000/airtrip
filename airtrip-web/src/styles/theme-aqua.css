@@ -29,7 +29,7 @@
   --ink-soft: #2c7389;
   --ink-faint: rgba(5, 58, 76, 0.55);
 
-  --glass-fill: rgba(4, 40, 58, 0.46);
+  --glass-fill: rgba(2, 28, 44, 0.15);
   --glass-edge: #ffffff;
   --glass-line: rgba(255, 255, 255, 0.9);
 
@@ -132,13 +132,31 @@
 /* The painted sky is brighter than a photograph, so it needs more ink
    under white type; the wallpaper carries its own contrast. */
 [data-theme='aqua']:not([data-wallpaper='on']) {
-  --glass-fill: rgba(3, 34, 50, 0.58);
+  --glass-fill: rgba(3, 34, 50, 0.22);
 }
 
 [data-theme='aqua']:not([data-wallpaper='on']) .win-dense {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 32%, rgba(255, 255, 255, 0.01) 100%),
-    rgba(3, 30, 45, 0.66);
+    rgba(3, 30, 45, 0.38);
+}
+
+/* A very clear pane cannot guarantee contrast on its own: the wallpaper has
+   bright clouds. This soft veil sits behind the content only, so the type keeps
+   a darker bed while the edges of the pane stay fully transparent. */
+[data-theme='aqua'] .win-body {
+  position: relative;
+  isolation: isolate;
+}
+
+[data-theme='aqua'] .win-body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(2, 20, 34, 0.16) 0%, rgba(2, 20, 34, 0.05) 44%, rgba(2, 20, 34, 0) 72%);
 }
 
 /* ---------- glass ---------- */
@@ -149,8 +167,8 @@
     linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.06) 26%, rgba(255, 255, 255, 0.01) 60%, rgba(255, 255, 255, 0.04) 100%),
     var(--glass-fill);
   border: 1.5px solid #ffffff;
-  backdrop-filter: blur(8px) saturate(1.7) brightness(0.94);
-  -webkit-backdrop-filter: blur(8px) saturate(1.7) brightness(0.94);
+  backdrop-filter: blur(8px) saturate(1.7) brightness(var(--glass-dim, 0.90));
+  -webkit-backdrop-filter: blur(8px) saturate(1.7) brightness(var(--glass-dim, 0.90));
   box-shadow:
     inset 0 0 20px rgba(148, 246, 255, 0.45),
     inset 0 1px 0 #ffffff,
@@ -163,7 +181,7 @@
 [data-theme='aqua'] .win-dense {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 32%, rgba(255, 255, 255, 0.01) 100%),
-    rgba(4, 38, 55, 0.55);
+    rgba(4, 38, 55, 0.30);
 }
 
 [data-theme='aqua'] .win-bar {
@@ -342,7 +360,7 @@
 [data-theme='aqua'] .t-body,
 [data-theme='aqua'] .stat-value {
   color: #ffffff;
-  text-shadow: 0 1px 2px rgba(0, 12, 24, 0.78), 0 0 12px rgba(0, 18, 34, 0.3);
+  text-shadow: 0 1px 3px rgba(0, 10, 20, 0.92), 0 0 14px rgba(0, 14, 26, 0.45);
 }
 
 [data-theme='aqua'] .t-accent {
@@ -355,13 +373,13 @@
 [data-theme='aqua'] .stat-label,
 [data-theme='aqua'] .field-label {
   color: rgba(255, 255, 255, 0.82);
-  text-shadow: 0 1px 2px rgba(0, 14, 28, 0.55);
+  text-shadow: 0 1px 2px rgba(0, 12, 24, 0.8);
 }
 
 [data-theme='aqua'] .t-mono,
 [data-theme='aqua'] .win-body .mono {
   color: #d8fbff;
-  text-shadow: 0 1px 2px rgba(0, 14, 28, 0.55);
+  text-shadow: 0 1px 2px rgba(0, 12, 24, 0.8);
 }
 
 /* colour chips print their own ink, so they opt out of the light mono tone */
