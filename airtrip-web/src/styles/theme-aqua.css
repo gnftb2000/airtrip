@@ -426,13 +426,23 @@
 /* The css minifier keeps only the last of a prefixed/unprefixed pair, which left
    Chrome without a blur while Safari still used the -webkit- copy. Declaring the
    standard property in its own @supports block keeps both engines frosted. */
+/* The wallpaper stays crisp behind the glass: no backdrop blur anywhere.
+   `?frost=1` restores the blurred recipe if it is ever wanted again. */
+[data-theme='aqua'] .win,
+[data-theme='aqua'] .win-dense,
+[data-theme='aqua'] .tile,
+[data-theme='aqua'] .dialog-veil {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
 @supports (backdrop-filter: blur(1px)) {
-  [data-theme='aqua'] .win,
-  [data-theme='aqua'] .win-dense {
+  [data-theme='aqua'][data-frost='on'] .win,
+  [data-theme='aqua'][data-frost='on'] .win-dense {
     backdrop-filter: blur(8px) saturate(1.7) brightness(var(--glass-dim, 0.9));
   }
 
-  [data-theme='aqua'] .tile {
+  [data-theme='aqua'][data-frost='on'] .tile {
     backdrop-filter: blur(2px) saturate(1.2);
   }
 }
