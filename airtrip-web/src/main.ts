@@ -20,9 +20,19 @@ const fill = Number(params.get('fill'))
 if (Number.isFinite(fill) && fill > 0) {
   document.documentElement.style.setProperty('--glass-fill', `rgba(2, 28, 44, ${Math.min(fill, 1)})`)
 }
-const veil = Number(params.get('veil'))
-if (Number.isFinite(veil)) {
-  document.documentElement.style.setProperty('--veil', String(Math.min(Math.max(veil, 0), 2)))
+// Note: Number(null) is 0, so presence has to be checked before parsing —
+// otherwise the veil param defaults to "off" on every page.
+const veilParam = params.get('veil')
+if (veilParam !== null && Number.isFinite(Number(veilParam))) {
+  const veil = Number(veilParam)
+  // Scale the three veil alphas from here: calc() inside an rgba() alpha is not
+  // reliable across engines, so the maths happens in JS instead.
+  const k = Math.min(Math.max(veil, 0), 2)
+  const root = document.documentElement.style
+  root.setProperty('--veil-top', `rgba(2, 18, 30, ${(0.24 * k).toFixed(3)})`)
+  root.setProperty('--veil-bottom', `rgba(2, 18, 30, ${(0.18 * k).toFixed(3)})`)
+  root.setProperty('--veil-radial', `rgba(2, 20, 34, ${(0.16 * k).toFixed(3)})`)
+  root.setProperty('--veil-radial-soft', `rgba(2, 20, 34, ${(0.05 * k).toFixed(3)})`)
 }
 const dim = Number(params.get('dim'))
 if (Number.isFinite(dim) && dim > 0) {

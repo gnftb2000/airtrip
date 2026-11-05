@@ -252,7 +252,7 @@ onMounted(() => {
   </AeroWindow>
 
   <div class="mt-4 grid gap-4 sm:grid-cols-2">
-    <RouterLink to="/routes" class="win block transition-transform hover:-translate-y-0.5">
+    <RouterLink to="/routes" class="win win-dense block transition-transform hover:-translate-y-0.5">
       <div class="win-body flex items-start gap-3.5">
         <div class="orb sweep shrink-0" style="width: 42px; height: 42px">
           <AeroIcon name="route" :size="20" />
@@ -270,7 +270,7 @@ onMounted(() => {
       </div>
     </RouterLink>
 
-    <RouterLink to="/plans/new" class="win block transition-transform hover:-translate-y-0.5">
+    <RouterLink to="/plans/new" class="win win-dense block transition-transform hover:-translate-y-0.5">
       <div class="win-body flex items-start gap-3.5">
         <div class="orb orb-aqua sweep shrink-0" style="width: 42px; height: 42px">
           <AeroIcon name="plan" :size="20" />
