@@ -7,6 +7,10 @@ travel plans. It is a Flask application (Flask-RESTX for Swagger docs,
 SQLAlchemy for persistence, Flask-JWT-Extended for auth) backed by a local
 SQLite database that is created next to the code on first run.
 
+![Aqua Login](airtrip-web/docs/app-aqua-login.webp)
+![Aqua Dashboard](airtrip-web/docs/app-aqua-dashboard.webp)
+![Aqua Airport Detail](airtrip-web/docs/app-aqua-airport-detail.webp)
+
 ## Features
 
 - **Authentication & accounts** — JWT bearer tokens with an `admin` / `user`
@@ -31,7 +35,7 @@ SQLite database that is created next to the code on first run.
 - **Web client** at `/app` — a single-page app over the same API: a Frutiger-Aero
   styled network explorer (airports, airlines, routes), private travel plans with
   a route picker, account administration and CSV import.
-  
+
 Toggle for when you want the cards to have a frosted texture:
 http://127.0.0.1:5055/app/dashboard?frost=1
 ## Project layout

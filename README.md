@@ -6,6 +6,10 @@
 应用（Flask-RESTX 出 Swagger 文档、SQLAlchemy 做持久化、Flask-JWT-Extended
 管登录），数据存在本地 SQLite 里，首次运行时在代码旁边自动创建。
 
+![Aqua Login](airtrip-web/docs/app-aqua-login.webp)
+![Aqua Dashboard](airtrip-web/docs/app-aqua-dashboard.webp)
+![Aqua Airport Detail](airtrip-web/docs/app-aqua-airport-detail.webp)
+
 ## 功能
 
 - **账号与鉴权** —— JWT bearer token，分 `admin` / `user` 两种角色；管理员
@@ -24,6 +28,7 @@
 - **Web 客户端** 挂在 `/app` —— 同一套 API 之上的单页应用：Frutiger Aero
   风格的航线网络浏览器（机场、航司、航线）、带航线选择器的私有行程、账号
   管理以及 CSV 导入。
+
 
 想要卡片磨砂质感时的开关:
 http://127.0.0.1:5055/app/dashboard?frost=1
